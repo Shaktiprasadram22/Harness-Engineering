@@ -11,6 +11,7 @@ Understand the infrastructure that turns model responses into useful, verifiable
 | **01** | [The System Around the Model](chapters/01-the-system-around-the-model.md) | The ten parts of an agent harness, illustrated through a login-bug investigation |
 | **02** | [Self-Improving Agent Harnesses](chapters/02-self-improving-agent-harnesses.md) | Improvement loops, controlled experiments, regression checks, and reviewable changes |
 | **03** | [Building an AI Agent From Scratch](chapters/03-building-an-agent-from-scratch.md) | Python sketches, tool loops, persistence, verification, and architecture |
+| **04** | [Agent Memory Architecture](chapters/04-agent-memory-architecture.md) | Four memory types, context assembly, conflict resolution, and forgetting |
 
 ## About these notes
 
@@ -25,3 +26,6 @@ These chapters are original educational explanations inspired by **The Carbon La
 
 - [Watch the Chapter 3 video](https://www.youtube.com/watch?v=oUBgqzcV1qw)
 - [Explore the original Carbon implementation](https://github.com/thecarbonlayer/carbon)
+
+- [Watch the Chapter 4 video](https://www.youtube.com/watch?v=PxuMqeIqCEo)
+- [Read the Chapter 4 companion article](https://www.thecarbonlayer.com/agent-memory-architecture/)
