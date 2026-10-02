@@ -13,6 +13,7 @@ Understand the infrastructure that turns model responses into useful, verifiable
 | **03** | [Building an AI Agent From Scratch](chapters/03-building-an-agent-from-scratch.md) | Python sketches, tool loops, persistence, verification, and architecture |
 | **04** | [Agent Memory Architecture](chapters/04-agent-memory-architecture.md) | Four memory types, context assembly, conflict resolution, and forgetting |
 | **05** | [Meta-Harness: Coordinating Multiple Agents](chapters/05-meta-harness-multi-agent-systems.md) | Team coordination, eight components, evidence, and failure recovery |
+| **06** | [Context Management](chapters/06-context-management.md) | Select, compress, write, isolate, and inspect the model’s working context |
 
 ## About these notes
 
@@ -33,3 +34,6 @@ These chapters are original educational explanations inspired by **The Carbon La
 
 - [Watch the Chapter 5 video](https://www.youtube.com/watch?v=HRUBDPdvaHU)
 - [Read the Chapter 5 companion article](https://thecarbonlayer.com/meta-harness/)
+
+- [Watch the Chapter 6 video](https://www.youtube.com/watch?v=mM_Wxemh3lU)
+- [Read the Chapter 6 companion article](https://www.thecarbonlayer.com/context-management/)
