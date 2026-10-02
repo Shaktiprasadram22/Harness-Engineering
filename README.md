@@ -15,6 +15,7 @@ Understand the infrastructure that turns model responses into useful, verifiable
 | **05** | [Meta-Harness: Coordinating Multiple Agents](chapters/05-meta-harness-multi-agent-systems.md) | Team coordination, eight components, evidence, and failure recovery |
 | **06** | [Context Management](chapters/06-context-management.md) | Select, compress, write, isolate, and inspect the model’s working context |
 | **07** | [Agent Skills](chapters/07-agent-skills.md) | Reusable procedures, selective loading, evidence, and practical evaluation |
+| **08** | [Evaluating AI Agents](chapters/08-evaluating-ai-agents.md) | Metrics, repeated trials, evidence, and measured improvements |
 
 ## About these notes
 
@@ -41,3 +42,6 @@ These chapters are original educational explanations inspired by **The Carbon La
 
 - [Watch the Chapter 7 video](https://www.youtube.com/watch?v=nrh1YtPKRD0)
 - [Read the Chapter 7 companion article](https://thecarbonlayer.com/agent-skills/)
+
+- [Watch the Chapter 8 video](https://www.youtube.com/watch?v=B9NPE_CaK5Q)
+- [Read the Chapter 8 companion article](https://www.thecarbonlayer.com/agent-evaluation/)
