@@ -1,0 +1,106 @@
+[
+  {
+    "id": "transfer-quantity-paraphrase",
+    "group": "transfer",
+    "turns": [
+      {
+        "question": "Check the stock of red folders in Central.",
+        "expected": {
+          "status": "ok",
+          "quantity": 8,
+          "branch": "central"
+        }
+      }
+    ]
+  },
+  {
+    "id": "transfer-zero",
+    "group": "transfer",
+    "turns": [
+      {
+        "question": "Are there any black pens available in Central?",
+        "expected": {
+          "status": "ok",
+          "quantity": 0,
+          "branch": "central"
+        }
+      }
+    ]
+  },
+  {
+    "id": "transfer-clarify",
+    "group": "transfer",
+    "turns": [
+      {
+        "question": "Please check red folder stock.",
+        "expected": {
+          "status": "clarify"
+        }
+      }
+    ]
+  },
+  {
+    "id": "transfer-context-switch",
+    "group": "transfer",
+    "turns": [
+      {
+        "question": "Check red folder stock in Central.",
+        "expected": {
+          "status": "ok",
+          "quantity": 8,
+          "branch": "central"
+        }
+      },
+      {
+        "question": "Check blue notebook stock at the other branch.",
+        "expected": {
+          "status": "ok",
+          "quantity": 7,
+          "branch": "north"
+        }
+      }
+    ]
+  },
+  {
+    "id": "transfer-same-product-change",
+    "group": "transfer",
+    "turns": [
+      {
+        "question": "Check red folder stock in Central.",
+        "expected": {
+          "status": "ok",
+          "quantity": 8,
+          "branch": "central"
+        }
+      },
+      {
+        "question": "Now check black pen stock at the same branch.",
+        "expected": {
+          "status": "ok",
+          "quantity": 0,
+          "branch": "central"
+        }
+      }
+    ]
+  },
+  {
+    "id": "transfer-no-anchor",
+    "group": "transfer",
+    "turns": [
+      {
+        "question": "How many blue notebooks across all branches?",
+        "expected": {
+          "status": "ok",
+          "quantity": 27,
+          "branch": "all"
+        }
+      },
+      {
+        "question": "Check black pen stock at the other branch.",
+        "expected": {
+          "status": "clarify"
+        }
+      }
+    ]
+  }
+]

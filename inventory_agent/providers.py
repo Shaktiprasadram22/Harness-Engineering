@@ -15,19 +15,27 @@ class ProviderError(RuntimeError):
 class OllamaProvider:
     name = "ollama"
 
-    def __init__(self, model="qwen3:4b", endpoint="http://localhost:11434", timeout=60):
+    def __init__(self, model="qwen3:4b", endpoint="http://localhost:11434", timeout=60,
+                 seed=42, max_tokens=256, thinking=False):
         self.model = model
         self.endpoint = endpoint.rstrip("/")
         self.timeout = timeout
+        self.seed, self.max_tokens, self.thinking = seed, max_tokens, thinking
+        self.last_metrics = {}
 
     def chat(self, messages, tools):
         payload = {"model": self.model, "messages": messages, "tools": tools,
-                   "stream": False, "options": {"temperature": 0}}
+                   "stream": False, "think": self.thinking,
+                   "options": {"temperature": 0, "seed": self.seed, "num_predict": self.max_tokens,
+                               "num_ctx": 4096, "num_thread": 4}}
         request = urllib.request.Request(self.endpoint + "/api/chat",
             data=json.dumps(payload).encode(), headers={"Content-Type": "application/json"}, method="POST")
         try:
             with urllib.request.urlopen(request, timeout=self.timeout) as response:
                 body = json.load(response)
+            self.last_metrics = {key: body.get(key) for key in (
+                "total_duration", "load_duration", "prompt_eval_count", "prompt_eval_duration",
+                "eval_count", "eval_duration", "done_reason")}
             message = body["message"]
             if not isinstance(message, dict):
                 raise ValueError("Invalid message")

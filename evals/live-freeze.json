@@ -1,0 +1,9 @@
+{
+  "frozen_at": "2026-10-03T19:34:46.497386+00:00",
+  "files": {
+    "evals/live-development.json": "6adf02bbcbd4d89a8870c0238f013c11e6fb31d58ab3cc801e7acd02931cebdf",
+    "evals/live-transfer.json": "88c133f6583648b699e51d892fc5947b0a575d83cfc9047da7514940fbc4edb9",
+    "evals/baselines/harness_v1.py": "5254329fcd93cf20da462e736e6fc0b5f6887b0009f803715653f91551a268ce",
+    "evals/live-plan.md": "0498848cc4b1babd201ca33f394f975fbb2dcd044b622e50e5f4a4331131b17c"
+  }
+}
