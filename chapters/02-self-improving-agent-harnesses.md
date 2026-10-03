@@ -15,6 +15,8 @@
 - [What the creator demonstrates](#what-the-creator-demonstrates)
 - [Understand the mechanism](#understand-the-mechanism)
 - [Workshop: improve a log-analysis agent](#workshop-improve-a-log-analysis-agent)
+- [Held-in, held-out, and the fixer](#held-in-held-out-and-the-fixer)
+- [Miners and regression guards](#miners-and-regression-guards)
 - [Measure improvements carefully](#measure-improvements-carefully)
 - [Design a reviewable change](#design-a-reviewable-change)
 - [Practice and reflection](#practice-and-reflection)
@@ -141,6 +143,56 @@ flowchart LR
 ```
 
 The proposal generator suggests an intervention. The target agent performs tasks under that intervention. The evaluator checks results. The reviewer assesses whether the evidence and tradeoffs justify adoption.
+
+## Held-in, held-out, and the fixer
+
+Imagine a teacher gives a student **five practice questions**, followed by an exam with **five new questions**.
+
+| Role or example | Exam analogy | Agent-improvement meaning |
+| :--- | :--- | :--- |
+| **Fixer** | The student developing a better method | The AI that investigates failures and proposes a harness fix |
+| **Held-in** | Five practice questions visible while learning | Examples the fixer can inspect while developing the fix |
+| **Held-out** | Five new exam questions unseen during preparation | Examples hidden from the fixer and used by the evaluator |
+| **Evaluator** | The teacher checking answers | The system that runs tasks and grades the candidate fix |
+
+The practice questions help develop the method. The new exam questions check whether that method works beyond the examples used to develop it.
+
+For the log-file example, **Log A is held-in**: the fixer can inspect the failure and use it to propose a change. **Log B is held-out**: the evaluator runs the changed agent on it without showing that example to the fixer during development.
+
+```mermaid
+flowchart LR
+    I["Held-in: visible practice examples"] --> F["Fixer develops a change"]
+    F --> C["Candidate harness"]
+    C --> E["Evaluator tests the candidate"]
+    O["Held-out: unseen exam examples"] --> E
+    E --> R["Evidence of transfer beyond practice examples"]
+```
+
+**Definitions for your notes:**
+
+- **Fixer:** the AI that investigates failures and proposes a fix.
+- **Held-in:** examples the fixer can see while developing the fix.
+- **Held-out:** examples hidden during development and used to check the fix on unseen cases.
+
+Held-out does **not** mean edge case. A hidden exam question can be ordinary or unusual. Also, passing a finite set of hidden cases is evidence of generalization, not proof that every possible input works.
+
+Held-out tasks are run by the evaluator; they are not omitted from testing. Repeatedly using the same hidden set to select fixes can gradually overfit to it, so fresh examples may be needed over time.
+
+## Miners and regression guards
+
+Imagine your phone's camera is broken, but calls work. After a repair, you check both:
+
+1. **Take a photo:** did the repair fix the known camera problem? This illustrates a **miner**.
+2. **Make a call:** do calls still work after the repair? This illustrates a **regression guard**.
+
+For the agent, a long-log question exposing the truncation problem is a miner. A short-log question that already worked is a regression guard.
+
+**Definitions for your notes:**
+
+- **Miners:** tests that expose a known weakness and check whether the fix solves it.
+- **Regression guards:** tests that check whether the fix breaks anything that previously worked.
+
+These labels answer a different question from held-in/held-out. **Miner or guard describes a test's purpose; held-in or held-out describes whether the fixer can see it.** A miner can be held-in or held-out, and so can a regression guard.
 
 ## Measure improvements carefully
 
