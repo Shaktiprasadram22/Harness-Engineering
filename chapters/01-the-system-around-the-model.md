@@ -15,6 +15,7 @@
 - [A complete task in motion](#a-complete-task-in-motion)
 - [Build your first harness](#build-your-first-harness)
 - [Practice: diagnose the failure](#practice-diagnose-the-failure)
+- [Diagnose the layer before changing the model](#diagnose-the-layer-before-changing-the-model)
 
 ## The three layers
 
@@ -225,6 +226,30 @@ Start with one narrow task and a small set of tools. Add infrastructure in respo
 | A concrete success check | Support completion with evidence |
 
 You do not need multiple agents, elaborate memory, or a large workflow engine for every task. Complexity should earn its place by solving an observed problem.
+
+## Diagnose the layer before changing the model
+
+Imagine a travel assistant books the wrong hotel. Read the trace before deciding that it needs a smarter model.
+
+| What you discover | First place to investigate |
+| :--- | :--- |
+| The user’s budget never reached the request | Context delivery |
+| An old budget replaced the current one | Memory and context assembly |
+| The booking tool accepted an invalid hotel ID | Tool validation |
+| A booking happened before confirmation | Permissions and workflow control |
+| The assistant claimed success after the API failed | Verification |
+
+These are original diagnostic examples. Several layers can contribute to one failure.
+
+### Instructions, enforcement, and evidence
+
+“Only book after approval” is an instruction. A booking endpoint that checks a valid approval record is enforcement. A saved booking receipt is evidence. Each answers a different question: what should happen, what may happen, and what actually happened.
+
+### Manager calls versus handoffs
+
+A manager can call a specialist, read its result, and continue owning the task. A handoff transfers responsibility for the next interaction to the specialist. Decide who owns the final answer and which state travels across that boundary.
+
+**For your notes:** a dependable agent needs a reasoning loop, permitted actions, preserved state, and evidence of completion. A polished interface alone does not establish any of those properties.
 
 ## Practice: diagnose the failure
 

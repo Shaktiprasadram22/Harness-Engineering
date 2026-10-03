@@ -23,6 +23,7 @@ This is an original study guide, not a transcript. The recap identifies the sour
 - [Failure and recovery](#failure-and-recovery)
 - [Judgment and workflow rules](#judgment-and-workflow-rules)
 - [Practice](#practice)
+- [Worker identity, capabilities, and authority](#worker-identity-capabilities-and-authority)
 
 ## What the creator designs
 
@@ -175,6 +176,33 @@ A saved review file proves that a file survived. Safe resumption also requires k
 | Confirm a referenced candidate exists | Direct repository inspection |
 
 Code-defined rules improve inspectability, but still need testing. Moving a rule into code does not automatically make its implementation correct.
+
+## Worker identity, capabilities, and authority
+
+Imagine a restaurant uses the same trained employee as a cook on one shift and a food inspector on another. Their training stays the same; the assigned role changes what they should do and what equipment they receive.
+
+For agents, distinguish the reusable worker configuration from the role it receives in a particular workflow.
+
+### An adapter is a contract, not a promise of identical features
+
+A common interface might expose start, events, cancel, and result. One underlying worker may support session resume; another may only support a new process. Record those capabilities explicitly. A workflow must not silently assume that every adapter can pause or resume work.
+
+### Authority is an intersection
+
+```text
+Package permits: read files, write files, run tests
+Reviewer role permits: read files, run tests
+Organization permits: local files only, no network
+Effective authority: read files and run tests locally
+```
+
+This invented example illustrates the rule: a narrower role should not acquire additional powers merely because its worker package supports them. The execution environment must enforce the resulting boundary.
+
+### Judgment and bookkeeping
+
+A model may decide whether two review findings describe the same underlying bug. The runtime can count attempts, preserve finished artifacts, check that required reviewers ran, and enforce the final human gate. State those responsibilities explicitly.
+
+**Checkpoint question:** if one reviewer crashes, can the runtime identify which candidate the other reviewer checked, preserve that review, and prevent incomplete work from being promoted?
 
 ## Practice
 

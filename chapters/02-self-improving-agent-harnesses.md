@@ -20,6 +20,7 @@
 - [Measure improvements carefully](#measure-improvements-carefully)
 - [Design a reviewable change](#design-a-reviewable-change)
 - [Practice and reflection](#practice-and-reflection)
+- [Weakness mining, routing, and the editable surface](#weakness-mining-routing-and-the-editable-surface)
 
 ## What the creator demonstrates
 
@@ -241,6 +242,36 @@ Restore the previous versioned configuration if monitoring reveals regressions.
 ```
 
 Store the actual diff and evaluation artifacts with the report. A reviewer should be able to connect the proposed mechanism to the measured outcome.
+
+## Weakness mining, routing, and the editable surface
+
+**Weakness mining means finding repeatable failures with a shared cause that a specific change could address.** Seeing two wrong answers is not enough: inspect the execution to establish whether they failed for the same reason.
+
+Here is an original shop example:
+
+| Observation | Possible repair | Evidence to obtain first |
+| :--- | :--- | :--- |
+| Assistant lacks the shop’s new opening hours | Update maintained facts | Confirm the current hours |
+| Stock tool drops the requested branch | Repair the tool/harness path | Compare supplied and executed arguments |
+| Reasoning fails even with complete, correct input | Investigate model capability | Rule out missing evidence and tool errors |
+
+These are hypotheses, not an automatic diagnosis from the symptom.
+
+### Changes have different scopes
+
+Changing a prompt, selecting context, altering a workflow, editing harness code, and changing the improvement process itself affect progressively broader parts of the system. Evaluate the actual effect; a small text edit can still change important behavior.
+
+**Editable surface:** the explicitly permitted files, fields, or policies the fixer may change. If only a character limit is editable, the fixer cannot implement a new log-selection algorithm. A useful diagnosis may therefore require a proposal for a separately reviewed expansion of that surface.
+
+### A stronger fixer can still propose an unsuitable fix
+
+Imagine an expert writes a complex checklist for a beginner who reliably follows only short instructions. The checklist is sophisticated, but performance can fall. Evaluate the proposed instructions on the target agent, not on the fixer’s apparent intelligence.
+
+### Safe experimentation
+
+Keep graders and reference data outside the candidate’s authority. Record the candidate diff, run the checks, and restore the baseline after rejection. If you repair the grader, remeasure the baseline too. Inspect individual guard failures before accepting a better average.
+
+**Connection to Chapter 11:** a candidate that passes this stage can still be rejected during design review. Testing a proposal and adopting it are separate decisions.
 
 ## Practice and reflection
 

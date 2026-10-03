@@ -25,6 +25,7 @@ This is an original study guide, not a transcript or a verified line-by-line acc
 - [Review before adoption](#review-before-adoption)
 - [Definitions for your notes](#definitions-for-your-notes)
 - [Practice](#practice)
+- [Promotion requires more than a passing score](#promotion-requires-more-than-a-passing-score)
 
 ## What the episode reports
 
@@ -175,6 +176,32 @@ Make the change inspectable, keep rejection possible, and define recovery from a
 | **Adapter** | A bridge between an interface and an underlying system |
 | **Lifecycle** | Creation, use, expiry, and cleanup of a resource |
 | **Promotion** | Moving an evaluated candidate into accepted use |
+
+## Promotion requires more than a passing score
+
+This chapter follows Chapter 2’s proposed truncation fix. Keep that sequence clear: a tested candidate can reach review and still be rejected because its design is too narrow.
+
+### Three boundaries to inspect
+
+In an original document-analysis example:
+
+| Boundary | Question |
+| :--- | :--- |
+| Storage | Where does the full document live, and who owns its cleanup? |
+| Retrieval | Can the agent access the reference using its available tools? |
+| Promotion | Has the candidate earned adoption under the declared checks? |
+
+Offloading a document solves neither retrieval nor promotion automatically. If the only tool accepts ordinary paths but the reference is a logical identifier, an adapter must translate it safely. If a scratch location exists, cleanup must cover failed runs as well as successful ones.
+
+### Match the intervention to the observed path
+
+Suppose traces show that an agent repeatedly uses a shell tool but never uses its file tool. A fix accessible only through the file tool may be technically correct and behaviorally ineffective. Inspect what the target model actually calls.
+
+### Ask what remains untested
+
+A recovery result on one long document does not cover every evidence placement, repeated invocation, secret-retention case, or tool combination. Add checks for the failure mechanism and plausible side effects. Compare against the same baseline conditions.
+
+**Source limit:** these notes use the published description and the linked repositories. They do not claim full transcript coverage. Detailed implementation claims must be checked against a specific source revision before being presented as established behavior.
 
 ## Practice
 

@@ -24,6 +24,7 @@ This chapter is an original study guide, not a transcript. The recap identifies 
 - [Costs and tradeoffs](#costs-and-tradeoffs)
 - [Inspect the actual request](#inspect-the-actual-request)
 - [Practice](#practice)
+- [Name the failure and preserve the important evidence](#name-the-failure-and-preserve-the-important-evidence)
 
 ## What the creator teaches
 
@@ -184,6 +185,41 @@ Ask:
 - Can claims be traced back to saved evidence?
 
 This turns a vague complaint such as “the agent lost track” into specific hypotheses you can test.
+
+## Name the failure and preserve the important evidence
+
+Use these names when diagnosing context problems:
+
+| Term | Original appointment-assistant example |
+| :--- | :--- |
+| **Poisoning** | An unverified guess about opening hours becomes a repeated “fact” |
+| **Distraction** | Pages of unrelated appointment history dominate the task |
+| **Confusion** | Unlabelled details from several clinics make the intended clinic unclear |
+| **Clash** | An old timetable and today’s confirmed timetable disagree |
+
+The symptoms can overlap. Inspect the assembled request rather than assigning a cause solely from the final answer.
+
+### Selection includes placement
+
+Including a useful fact somewhere in a long request does not guarantee that the model will use it. Test whether the task goal, current constraints, and critical evidence remain accessible in your actual model setup. Avoid claiming one placement works for every model.
+
+### A useful compaction record
+
+```text
+Goal: book a consultation at the Mumbai clinic.
+Constraint: after 6 pm; user has not approved payment.
+Established: Tuesday unavailable; Thursday has an opening.
+Evidence: booking API response saved under appointment-check-3.
+Next step: ask whether Thursday 6:30 pm is acceptable.
+```
+
+This original example preserves decisions and authority alongside facts. A summary that keeps the appointment time but drops the payment constraint changes the task.
+
+### Stable context and changing context
+
+Keep stable guidance organized separately from changing observations when practical. Prefix caching can reduce repeated computation under supported serving conditions. It does not fix a misleading summary, outdated evidence, or irrelevant retrieval.
+
+**For your notes:** the complete stored conversation, the UI’s visible conversation, and the model’s current request can be different records.
 
 ## Practice
 

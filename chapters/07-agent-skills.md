@@ -24,6 +24,7 @@ This chapter is an original study guide, not a transcript. The recap identifies 
 - [Test whether the procedure helps](#test-whether-the-procedure-helps)
 - [Maintain the procedure](#maintain-the-procedure)
 - [Practice](#practice)
+- [Choosing a skill and choosing its executor](#choosing-a-skill-and-choosing-its-executor)
 
 ## What the creator teaches
 
@@ -206,6 +207,36 @@ flowchart LR
 Not every failure belongs in the skill. A broken calculator needs a tool fix. Outdated source data needs a data update. Missing access requires an environment decision.
 
 Assign an owner, retain versions, and remove obsolete steps. Recheck the procedure when definitions, tools, or expectations change.
+
+## Choosing a skill and choosing its executor
+
+Imagine a bank has a loan-review checklist. One officer can execute it, or specialists can examine income and documentation separately. The checklist describes the method; the officers execute it.
+
+### Trigger and non-trigger
+
+A useful skill says when it applies and when it should stay out of the way.
+
+```text
+Trigger: review a loan application for completeness.
+Non-trigger: explain loan interest rates to a customer.
+Inputs: application and required-document list.
+Output: missing documents with evidence references.
+Boundary: report completeness; do not approve a loan.
+```
+
+This invented skill separates procedure from decision authority. Loading it must not grant extra permissions.
+
+### Progressive disclosure versus progressive loading
+
+Authoring can split a skill into a short entry file and deeper references: that is disclosure through document structure. At runtime, loading only the relevant entry and references keeps context focused. The structure helps only if the agent actually receives or retrieves the needed material.
+
+### Check activation and execution separately
+
+Did the intended skill activate? Did it load the relevant reference? Did the agent perform the checks? Did the report contain evidence? These are separate failure points.
+
+An assistant that produces the expected sign-off could have followed the procedure—or merely copied the sign-off. Grade consequential steps and artifacts, not just a phrase in the final reply.
+
+**For your notes:** a skill is a reusable procedure; a subagent is an executor with its own context and tools. Use either or both according to the task.
 
 ## Practice
 

@@ -23,6 +23,7 @@ This is an original study guide, not a transcript. The recap describes the creat
 - [Make completion inspectable](#make-completion-inspectable)
 - [Study the original implementation](#study-the-original-implementation)
 - [Practice](#practice)
+- [Trace a turn through the implementation](#trace-a-turn-through-the-implementation)
 
 ## What the creator builds
 
@@ -203,6 +204,43 @@ The creator’s repository is the place to inspect exact source, installation re
 **[Open the Carbon course repository →](https://github.com/thecarbonlayer/carbon)**
 
 A useful study method is to compare adjacent chapter tags, identify the new behavior, and locate the code that enables it. Keep our document’s chapter numbering separate from the video’s internal build stages: this is **Chapter 3 of these notes**, covering a video with stages **0–14**.
+
+## Trace a turn through the implementation
+
+An original example: a user asks a coding agent to correct a tax calculation.
+
+```mermaid
+sequenceDiagram
+    participant U as UI
+    participant H as Harness
+    participant M as Model
+    participant T as Tools
+    U->>H: Task
+    H->>M: Instructions, history, evidence, tool schemas
+    M-->>H: Proposed tool call
+    H->>H: Validate arguments and authority
+    H->>T: Execute permitted action
+    T-->>H: Result and exit status
+    H->>M: Tool result
+    M-->>H: Next action or answer
+    H-->>U: Verified result and trace
+```
+
+The model proposes an action; the harness executes it. A returned tool-call object does not mean the action already happened.
+
+### Two different limits
+
+A per-item clamp limits one incoming file or tool result. Conversation compaction reduces accumulated history. A conversation can fit its overall budget while one clamped file has already lost the important line. Conversely, many small valid results can fill the total window.
+
+### What a test receipt must establish
+
+For the tax example, record the exact command, exit status, and version of the code tested. An earlier passing run cannot verify a later edit. Also check whether the command actually exercises tax calculations: exit zero from an unrelated test is insufficient.
+
+### Follow the dependency boundary
+
+The UI displays progress and collects input. The harness owns action rules and state. The provider adapter converts requests and responses. Keeping those responsibilities distinct lets a command-line interface and a graphical interface use the same core behavior.
+
+**Reading exercise:** follow one request from input to provider call, tool execution, saved state, and final output. At each step ask what is data, what is a proposed action, and what is verified evidence.
 
 ## Practice
 

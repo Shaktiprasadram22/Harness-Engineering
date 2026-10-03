@@ -25,6 +25,7 @@ This is an original study guide, not a transcript. The recap describes the creat
 - [Workshop: test the coordination layer](#workshop-test-the-coordination-layer)
 - [Definitions for your notes](#definitions-for-your-notes)
 - [Practice](#practice)
+- [Place each check where it can enforce the rule](#place-each-check-where-it-can-enforce-the-rule)
 
 ## What the creator reports
 
@@ -184,6 +185,35 @@ Observe decisions between workers, not only their transcripts. Whether a step wa
 | **Resume** | Continue using applicable saved progress |
 | **Revision cap** | Limit on rounds of changes |
 | **Fault injection** | Deliberately introduce a controlled failure to test response |
+
+## Place each check where it can enforce the rule
+
+Imagine a delivery workflow. A courier claims a package is delivered; a coordinator independently checks the delivery record. A correctly shaped courier report is useful input, but it is not proof of delivery.
+
+### Before, during, and after a worker runs
+
+| Placement | Original software-review example |
+| :--- | :--- |
+| Before execution | Give a reviewer a read-only workspace |
+| During each attempt | Validate its output contract and count failures |
+| After execution | Check claimed artifacts against Git and saved evidence |
+| Before promotion | Verify the final candidate and required review coverage |
+
+A retry budget only governs checks included in its attempt loop. A later gate failure may need a new workflow decision rather than an automatic retry.
+
+### Fingerprint what actually ran
+
+Record the resolved worker configuration: role, model identifier, instructions, tools, workspace policy, and relevant versions. A name such as “reviewer” is not enough to explain last week’s result if its configuration has changed.
+
+### Too little authority can also break the workflow
+
+A history investigator given only file reading cannot inspect Git history. Its empty report may be structurally valid while failing its purpose. Check that a worker had the capabilities needed to gather the required evidence.
+
+### Resume requires revalidation
+
+Stored output should be checked against the current input, candidate identity, configuration, and output contract before reuse. Completed-step reuse is different from resuming halfway through a worker’s interrupted reasoning.
+
+**For your notes:** final edits need final verification. A review of the previous version does not cover newly introduced errors.
 
 ## Practice
 

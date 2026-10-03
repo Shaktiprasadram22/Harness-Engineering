@@ -25,6 +25,7 @@ This is an original study guide, not a transcript. The recap describes the creat
 - [Workshop: diagnose and fix an inventory agent](#workshop-diagnose-and-fix-an-inventory-agent)
 - [Grade with appropriate evidence](#grade-with-appropriate-evidence)
 - [Practice](#practice)
+- [Abstention, fallback tools, and partial progress](#abstention-fallback-tools-and-partial-progress)
 
 ## What the creator demonstrates
 
@@ -205,6 +206,28 @@ flowchart LR
 Save enough metadata to understand what changed between runs. Changes to the database snapshot or expected-answer function can otherwise look like agent improvements.
 
 Reserve unseen tasks where appropriate. Keep grading material separate from candidate-editable content, and budget evaluation effort according to the importance and variability of the task.
+
+## Abstention, fallback tools, and partial progress
+
+Imagine an inventory assistant cannot establish whether a customer means the central or north branch. Asking which branch they mean can be the correct outcome. Saying “20 available” without checking the branch is a confidently wrong answer, even if 20 exists somewhere in the data.
+
+### Separate the answer from the route
+
+Record correctness, tool selection, empty results, errors, retries, and the final response. An accurate number without required evidence may be a lucky guess. A correct tool call followed by a misread result is a different failure.
+
+### Dedicated tools and fallback tools
+
+A narrow tool can own a tested query. A flexible fallback can cover questions that have no dedicated tool, but introduces more possible query mistakes and wasted work. Recurring failed fallback requests help identify which specific tool to build next.
+
+### Judge calibration
+
+For qualities such as clarity, use a written rubric and compare a model judge with independently labeled examples. Include an unknown option for insufficient evidence. Agreement on a small calibration set does not establish that the judge is reliable on every future case.
+
+### Grade chains at checkpoints
+
+For “find a product, identify its branch, then compute its reorder need,” record each checkpoint as well as whole-task success. A fault injected into the first lookup can reveal whether recovery works. Partial credit helps diagnosis; it must not imply that the incomplete final task succeeded.
+
+**For your notes:** freeze relevant data and record model, harness, dataset, and grading versions. Otherwise, a score change may reflect a changed measuring setup rather than a better agent.
 
 ## Practice
 

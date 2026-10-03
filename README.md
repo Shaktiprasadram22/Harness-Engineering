@@ -85,6 +85,8 @@ The code does not claim an OS sandbox or production readiness. It deliberately s
 
 ## About these notes
 
+**Coverage:** [Review of all eleven chapters](docs/chapter-coverage.md) lists the expanded explanations and remaining source limitations. These are study guides, not certified complete video transcripts.
+
 These chapters are original educational explanations inspired by **The Carbon Layer’s videos and companion articles**. It is not a transcript. Examples and diagrams were created for this guide.
 
 - [Watch the masterclass](https://www.youtube.com/watch?v=mQfTdNVCOB0)

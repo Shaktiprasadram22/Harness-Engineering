@@ -24,6 +24,7 @@ This is an original study guide, not a transcript. The recap describes the creat
 - [Test the boundary](#test-the-boundary)
 - [Definitions for your notes](#definitions-for-your-notes)
 - [Practice](#practice)
+- [Follow the attempted action to the boundary](#follow-the-attempted-action-to-the-boundary)
 
 ## What the creator teaches
 
@@ -165,6 +166,34 @@ Keep the supported task usable as well. An environment that prevents necessary c
 | **Policy** | Rules defining permitted and denied operations |
 | **Least privilege** | Give only the access the task needs |
 | **Credential scope** | The resources and operations a credential authorizes |
+
+## Follow the attempted action to the boundary
+
+An original example: an agent tries to read a payroll file outside its task workspace.
+
+```mermaid
+flowchart TD
+    A[Model proposes a file read] --> B[Tool validates the path]
+    B --> C[Process requests filesystem access]
+    C --> D[Runtime, OS, container, or VM boundary]
+    D --> E[Allowed data or enforced denial]
+```
+
+The layers answer different questions. A narrow runtime may have no file-reading capability. An OS policy may deny a real file. A container may expose a different filesystem at the same path. Stronger virtualization changes the boundary further.
+
+### A policy can faithfully enforce the wrong scope
+
+If a sandbox permits the entire home directory, it may correctly allow access to a file the task never needed. Check actual mounts, permitted paths, network destinations, credentials, and child-process behavior.
+
+### Local containment and remote authority
+
+Suppose a confined process still has a valid accounting API token. It may be unable to read host files yet remain able to alter remote invoices. Restrict the token’s permissions and the exposed tool operations separately from local filesystem access.
+
+### Denied, unavailable, and redirected are different
+
+A rejected operation demonstrates a checked boundary. An absent capability gives no operation to request. A redirected file path can succeed against different data. Read the trace carefully before interpreting success or failure.
+
+**For your notes:** choose a boundary for the workload and inspect its configuration. The word “sandbox” alone does not describe what an agent can reach.
 
 ## Practice
 

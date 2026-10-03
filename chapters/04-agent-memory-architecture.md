@@ -23,6 +23,7 @@ This chapter is an original study guide, not a transcript. The recap describes t
 - [Updating and forgetting](#updating-and-forgetting)
 - [Evaluate memory behavior](#evaluate-memory-behavior)
 - [Practice](#practice)
+- [Remembering a fact is different from authorizing an action](#remembering-a-fact-is-different-from-authorizing-an-action)
 
 ## What the creator teaches
 
@@ -207,6 +208,32 @@ flowchart LR
 ```
 
 Inspect each stage. A bad answer may come from failed retrieval, stale records, incorrect context assembly, or poor reasoning over correctly supplied evidence.
+
+## Remembering a fact is different from authorizing an action
+
+Suppose a service agent remembers that a customer authorized a refund last month. Today’s refund is a different transaction. The old event is useful history; it does not establish permission for the current transaction.
+
+### RAG, memory, and the current prompt
+
+| Mechanism | Original customer-service example |
+| :--- | :--- |
+| External retrieval | Find the published refund policy |
+| Episodic memory | Retrieve the dated conversation about last month’s refund |
+| Semantic memory | Retrieve the customer’s maintained contact preference |
+| Procedural memory | Load the refund review sequence |
+| Working context | Assemble the relevant material for today’s decision |
+
+These responsibilities may share storage or retrieval code. The distinction is the question each answers.
+
+### Do not promote every old observation into a current fact
+
+“Address was Pune on 1 June” is a dated observation. “Current delivery address is Mumbai, confirmed on 3 October” can supersede it for shipping, while the old record remains useful for investigating the June order. Keep provenance and scope so the agent can distinguish those uses.
+
+### Memory needs boundaries
+
+Store whose fact it is, which project or transaction it applies to, and when it was checked. A preference from one customer must not shape another customer’s order. A remembered preference can also yield to a direct current request—for example, a usual preference for brief replies should not suppress a requested detailed explanation.
+
+**For your notes:** memory stores useful state; retrieval finds it; context assembly chooses what the model sees. Saving something does not guarantee that the agent will recall it correctly or use it appropriately.
 
 ## Practice
 
