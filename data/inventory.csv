@@ -1,0 +1,7 @@
+product,branch,quantity,reorder_level
+blue notebook,central,20,10
+blue notebook,north,7,10
+black pen,central,0,5
+black pen,north,12,5
+red folder,central,8,4
+red folder,north,3,4

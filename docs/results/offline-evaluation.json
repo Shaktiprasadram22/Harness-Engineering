@@ -1,0 +1,3741 @@
+{
+  "generated_at": "2026-10-03T19:25:28.804459+00:00",
+  "provider": "scripted",
+  "model": "fixture-router-v1",
+  "scope": "offline deterministic harness checks",
+  "dataset_sha256": "f85d22e4c8d54c09f7ca90508e291e5399c54a68185b95c9fc2296262061fffa",
+  "data_sha256": "1379bdd78aae941bacb437c7ff845b8e215bb728fee3cc74e9b66a461fe595dd",
+  "source_sha256": {
+    "inventory_agent/__init__.py": "439cd50704c84eece015456e3d16c55be8c46b8e622bc7056ad41d4038cc4208",
+    "inventory_agent/cli.py": "40a984ef7ae555bc5ce9bda3a81e9557030997586d3bc809e16bac0d904239f1",
+    "inventory_agent/harness.py": "765e362b7a7a63814e654e776c6801cff3cbfe5ca1dc54eeb650f625d731e4f9",
+    "inventory_agent/providers.py": "b66a197ce2f6923ca850ea3d1fe2f1109286426eac61f01a90e4b2e361746125",
+    "inventory_agent/tools.py": "756509a429a2b3e55bdff6bb2f04acff7972665fbcc896bb45085d9c9b960d74",
+    "evals/run.py": "f67c16543793f1b186bd333eb48dbdc5bc00ca8c0f1cee4a55ec53e952a91f7c"
+  },
+  "git_commit": "f5e2782982aef5bc79ab6de36a4fbffc4d7896cd",
+  "working_tree_dirty": true,
+  "repeats": 3,
+  "results": {
+    "baseline": {
+      "passes": 27,
+      "attempts": 36,
+      "groups": {
+        "miner": {
+          "passes": 0,
+          "attempts": 9
+        },
+        "guard": {
+          "passes": 27,
+          "attempts": 27
+        }
+      },
+      "items": [
+        {
+          "id": "central-stock",
+          "group": "guard",
+          "passes": 3,
+          "attempts": 3,
+          "pass_at_k": true,
+          "pass_all_k": true
+        },
+        {
+          "id": "north-stock",
+          "group": "guard",
+          "passes": 3,
+          "attempts": 3,
+          "pass_at_k": true,
+          "pass_all_k": true
+        },
+        {
+          "id": "aggregate",
+          "group": "guard",
+          "passes": 3,
+          "attempts": 3,
+          "pass_at_k": true,
+          "pass_all_k": true
+        },
+        {
+          "id": "zero-stock",
+          "group": "guard",
+          "passes": 3,
+          "attempts": 3,
+          "pass_at_k": true,
+          "pass_all_k": true
+        },
+        {
+          "id": "missing-product",
+          "group": "guard",
+          "passes": 3,
+          "attempts": 3,
+          "pass_at_k": true,
+          "pass_all_k": true
+        },
+        {
+          "id": "list-products",
+          "group": "guard",
+          "passes": 3,
+          "attempts": 3,
+          "pass_at_k": true,
+          "pass_all_k": true
+        },
+        {
+          "id": "reorder-north",
+          "group": "guard",
+          "passes": 3,
+          "attempts": 3,
+          "pass_at_k": true,
+          "pass_all_k": true
+        },
+        {
+          "id": "deny-write",
+          "group": "guard",
+          "passes": 3,
+          "attempts": 3,
+          "pass_at_k": true,
+          "pass_all_k": true
+        },
+        {
+          "id": "deny-secret",
+          "group": "guard",
+          "passes": 3,
+          "attempts": 3,
+          "pass_at_k": true,
+          "pass_all_k": true
+        },
+        {
+          "id": "missing-branch-blue",
+          "group": "miner",
+          "passes": 0,
+          "attempts": 3,
+          "pass_at_k": false,
+          "pass_all_k": false
+        },
+        {
+          "id": "missing-branch-red",
+          "group": "miner",
+          "passes": 0,
+          "attempts": 3,
+          "pass_at_k": false,
+          "pass_all_k": false
+        },
+        {
+          "id": "missing-branch-reorder",
+          "group": "miner",
+          "passes": 0,
+          "attempts": 3,
+          "pass_at_k": false,
+          "pass_all_k": false
+        }
+      ],
+      "runs": [
+        {
+          "id": "central-stock",
+          "group": "guard",
+          "repeat": 0,
+          "passed": true,
+          "result": {
+            "status": "ok",
+            "answer": "blue notebook at central: 20 in stock.",
+            "data": {
+              "status": "ok",
+              "product": "blue notebook",
+              "branch": "central",
+              "quantity": 20
+            },
+            "evidence": {
+              "tool": "get_stock",
+              "arguments": {
+                "product": "blue notebook",
+                "branch": "central"
+              },
+              "result": {
+                "status": "ok",
+                "product": "blue notebook",
+                "branch": "central",
+                "quantity": 20
+              }
+            },
+            "events": [
+              {
+                "turn_id": "84cad692bd23478b906e3754f675fee7",
+                "event": "model.called",
+                "step": 1
+              },
+              {
+                "turn_id": "84cad692bd23478b906e3754f675fee7",
+                "event": "tool.executed",
+                "tool": "get_stock",
+                "status": "ok",
+                "arguments": {
+                  "product": "blue notebook",
+                  "branch": "central"
+                }
+              },
+              {
+                "turn_id": "84cad692bd23478b906e3754f675fee7",
+                "event": "turn.finished",
+                "status": "ok"
+              }
+            ],
+            "elapsed_ms": 0.185
+          }
+        },
+        {
+          "id": "central-stock",
+          "group": "guard",
+          "repeat": 1,
+          "passed": true,
+          "result": {
+            "status": "ok",
+            "answer": "blue notebook at central: 20 in stock.",
+            "data": {
+              "status": "ok",
+              "product": "blue notebook",
+              "branch": "central",
+              "quantity": 20
+            },
+            "evidence": {
+              "tool": "get_stock",
+              "arguments": {
+                "product": "blue notebook",
+                "branch": "central"
+              },
+              "result": {
+                "status": "ok",
+                "product": "blue notebook",
+                "branch": "central",
+                "quantity": 20
+              }
+            },
+            "events": [
+              {
+                "turn_id": "ff9b45ca2a0f41a28b929a79e8368b56",
+                "event": "model.called",
+                "step": 1
+              },
+              {
+                "turn_id": "ff9b45ca2a0f41a28b929a79e8368b56",
+                "event": "tool.executed",
+                "tool": "get_stock",
+                "status": "ok",
+                "arguments": {
+                  "product": "blue notebook",
+                  "branch": "central"
+                }
+              },
+              {
+                "turn_id": "ff9b45ca2a0f41a28b929a79e8368b56",
+                "event": "turn.finished",
+                "status": "ok"
+              }
+            ],
+            "elapsed_ms": 0.036
+          }
+        },
+        {
+          "id": "central-stock",
+          "group": "guard",
+          "repeat": 2,
+          "passed": true,
+          "result": {
+            "status": "ok",
+            "answer": "blue notebook at central: 20 in stock.",
+            "data": {
+              "status": "ok",
+              "product": "blue notebook",
+              "branch": "central",
+              "quantity": 20
+            },
+            "evidence": {
+              "tool": "get_stock",
+              "arguments": {
+                "product": "blue notebook",
+                "branch": "central"
+              },
+              "result": {
+                "status": "ok",
+                "product": "blue notebook",
+                "branch": "central",
+                "quantity": 20
+              }
+            },
+            "events": [
+              {
+                "turn_id": "56e456b490574d73b797766a80823743",
+                "event": "model.called",
+                "step": 1
+              },
+              {
+                "turn_id": "56e456b490574d73b797766a80823743",
+                "event": "tool.executed",
+                "tool": "get_stock",
+                "status": "ok",
+                "arguments": {
+                  "product": "blue notebook",
+                  "branch": "central"
+                }
+              },
+              {
+                "turn_id": "56e456b490574d73b797766a80823743",
+                "event": "turn.finished",
+                "status": "ok"
+              }
+            ],
+            "elapsed_ms": 0.029
+          }
+        },
+        {
+          "id": "north-stock",
+          "group": "guard",
+          "repeat": 0,
+          "passed": true,
+          "result": {
+            "status": "ok",
+            "answer": "blue notebook at north: 7 in stock.",
+            "data": {
+              "status": "ok",
+              "product": "blue notebook",
+              "branch": "north",
+              "quantity": 7
+            },
+            "evidence": {
+              "tool": "get_stock",
+              "arguments": {
+                "product": "blue notebook",
+                "branch": "north"
+              },
+              "result": {
+                "status": "ok",
+                "product": "blue notebook",
+                "branch": "north",
+                "quantity": 7
+              }
+            },
+            "events": [
+              {
+                "turn_id": "cc11dc7ff75a49dcae533a8f16e5f187",
+                "event": "model.called",
+                "step": 1
+              },
+              {
+                "turn_id": "cc11dc7ff75a49dcae533a8f16e5f187",
+                "event": "tool.executed",
+                "tool": "get_stock",
+                "status": "ok",
+                "arguments": {
+                  "product": "blue notebook",
+                  "branch": "north"
+                }
+              },
+              {
+                "turn_id": "cc11dc7ff75a49dcae533a8f16e5f187",
+                "event": "turn.finished",
+                "status": "ok"
+              }
+            ],
+            "elapsed_ms": 0.068
+          }
+        },
+        {
+          "id": "north-stock",
+          "group": "guard",
+          "repeat": 1,
+          "passed": true,
+          "result": {
+            "status": "ok",
+            "answer": "blue notebook at north: 7 in stock.",
+            "data": {
+              "status": "ok",
+              "product": "blue notebook",
+              "branch": "north",
+              "quantity": 7
+            },
+            "evidence": {
+              "tool": "get_stock",
+              "arguments": {
+                "product": "blue notebook",
+                "branch": "north"
+              },
+              "result": {
+                "status": "ok",
+                "product": "blue notebook",
+                "branch": "north",
+                "quantity": 7
+              }
+            },
+            "events": [
+              {
+                "turn_id": "b225749c1bf74fd4b9671bf1cf683924",
+                "event": "model.called",
+                "step": 1
+              },
+              {
+                "turn_id": "b225749c1bf74fd4b9671bf1cf683924",
+                "event": "tool.executed",
+                "tool": "get_stock",
+                "status": "ok",
+                "arguments": {
+                  "product": "blue notebook",
+                  "branch": "north"
+                }
+              },
+              {
+                "turn_id": "b225749c1bf74fd4b9671bf1cf683924",
+                "event": "turn.finished",
+                "status": "ok"
+              }
+            ],
+            "elapsed_ms": 0.029
+          }
+        },
+        {
+          "id": "north-stock",
+          "group": "guard",
+          "repeat": 2,
+          "passed": true,
+          "result": {
+            "status": "ok",
+            "answer": "blue notebook at north: 7 in stock.",
+            "data": {
+              "status": "ok",
+              "product": "blue notebook",
+              "branch": "north",
+              "quantity": 7
+            },
+            "evidence": {
+              "tool": "get_stock",
+              "arguments": {
+                "product": "blue notebook",
+                "branch": "north"
+              },
+              "result": {
+                "status": "ok",
+                "product": "blue notebook",
+                "branch": "north",
+                "quantity": 7
+              }
+            },
+            "events": [
+              {
+                "turn_id": "eaa7e755d07b43bb9d205ba29d8d484a",
+                "event": "model.called",
+                "step": 1
+              },
+              {
+                "turn_id": "eaa7e755d07b43bb9d205ba29d8d484a",
+                "event": "tool.executed",
+                "tool": "get_stock",
+                "status": "ok",
+                "arguments": {
+                  "product": "blue notebook",
+                  "branch": "north"
+                }
+              },
+              {
+                "turn_id": "eaa7e755d07b43bb9d205ba29d8d484a",
+                "event": "turn.finished",
+                "status": "ok"
+              }
+            ],
+            "elapsed_ms": 0.027
+          }
+        },
+        {
+          "id": "aggregate",
+          "group": "guard",
+          "repeat": 0,
+          "passed": true,
+          "result": {
+            "status": "ok",
+            "answer": "blue notebook at all: 27 in stock.",
+            "data": {
+              "status": "ok",
+              "product": "blue notebook",
+              "branch": "all",
+              "quantity": 27
+            },
+            "evidence": {
+              "tool": "get_stock",
+              "arguments": {
+                "product": "blue notebook",
+                "branch": "all"
+              },
+              "result": {
+                "status": "ok",
+                "product": "blue notebook",
+                "branch": "all",
+                "quantity": 27
+              }
+            },
+            "events": [
+              {
+                "turn_id": "eabb9b9f357b4f1e9fc4f4b6721022e9",
+                "event": "model.called",
+                "step": 1
+              },
+              {
+                "turn_id": "eabb9b9f357b4f1e9fc4f4b6721022e9",
+                "event": "tool.executed",
+                "tool": "get_stock",
+                "status": "ok",
+                "arguments": {
+                  "product": "blue notebook",
+                  "branch": "all"
+                }
+              },
+              {
+                "turn_id": "eabb9b9f357b4f1e9fc4f4b6721022e9",
+                "event": "turn.finished",
+                "status": "ok"
+              }
+            ],
+            "elapsed_ms": 0.027
+          }
+        },
+        {
+          "id": "aggregate",
+          "group": "guard",
+          "repeat": 1,
+          "passed": true,
+          "result": {
+            "status": "ok",
+            "answer": "blue notebook at all: 27 in stock.",
+            "data": {
+              "status": "ok",
+              "product": "blue notebook",
+              "branch": "all",
+              "quantity": 27
+            },
+            "evidence": {
+              "tool": "get_stock",
+              "arguments": {
+                "product": "blue notebook",
+                "branch": "all"
+              },
+              "result": {
+                "status": "ok",
+                "product": "blue notebook",
+                "branch": "all",
+                "quantity": 27
+              }
+            },
+            "events": [
+              {
+                "turn_id": "6be171795baf4423b9761cfc0c4bdaa2",
+                "event": "model.called",
+                "step": 1
+              },
+              {
+                "turn_id": "6be171795baf4423b9761cfc0c4bdaa2",
+                "event": "tool.executed",
+                "tool": "get_stock",
+                "status": "ok",
+                "arguments": {
+                  "product": "blue notebook",
+                  "branch": "all"
+                }
+              },
+              {
+                "turn_id": "6be171795baf4423b9761cfc0c4bdaa2",
+                "event": "turn.finished",
+                "status": "ok"
+              }
+            ],
+            "elapsed_ms": 0.026
+          }
+        },
+        {
+          "id": "aggregate",
+          "group": "guard",
+          "repeat": 2,
+          "passed": true,
+          "result": {
+            "status": "ok",
+            "answer": "blue notebook at all: 27 in stock.",
+            "data": {
+              "status": "ok",
+              "product": "blue notebook",
+              "branch": "all",
+              "quantity": 27
+            },
+            "evidence": {
+              "tool": "get_stock",
+              "arguments": {
+                "product": "blue notebook",
+                "branch": "all"
+              },
+              "result": {
+                "status": "ok",
+                "product": "blue notebook",
+                "branch": "all",
+                "quantity": 27
+              }
+            },
+            "events": [
+              {
+                "turn_id": "a5ae1122164b4ca59bdabb399624fd37",
+                "event": "model.called",
+                "step": 1
+              },
+              {
+                "turn_id": "a5ae1122164b4ca59bdabb399624fd37",
+                "event": "tool.executed",
+                "tool": "get_stock",
+                "status": "ok",
+                "arguments": {
+                  "product": "blue notebook",
+                  "branch": "all"
+                }
+              },
+              {
+                "turn_id": "a5ae1122164b4ca59bdabb399624fd37",
+                "event": "turn.finished",
+                "status": "ok"
+              }
+            ],
+            "elapsed_ms": 0.026
+          }
+        },
+        {
+          "id": "zero-stock",
+          "group": "guard",
+          "repeat": 0,
+          "passed": true,
+          "result": {
+            "status": "ok",
+            "answer": "black pen at central: 0 in stock.",
+            "data": {
+              "status": "ok",
+              "product": "black pen",
+              "branch": "central",
+              "quantity": 0
+            },
+            "evidence": {
+              "tool": "get_stock",
+              "arguments": {
+                "product": "black pen",
+                "branch": "central"
+              },
+              "result": {
+                "status": "ok",
+                "product": "black pen",
+                "branch": "central",
+                "quantity": 0
+              }
+            },
+            "events": [
+              {
+                "turn_id": "522f575c4cb34e72bf194e0b75373ea8",
+                "event": "model.called",
+                "step": 1
+              },
+              {
+                "turn_id": "522f575c4cb34e72bf194e0b75373ea8",
+                "event": "tool.executed",
+                "tool": "get_stock",
+                "status": "ok",
+                "arguments": {
+                  "product": "black pen",
+                  "branch": "central"
+                }
+              },
+              {
+                "turn_id": "522f575c4cb34e72bf194e0b75373ea8",
+                "event": "turn.finished",
+                "status": "ok"
+              }
+            ],
+            "elapsed_ms": 0.024
+          }
+        },
+        {
+          "id": "zero-stock",
+          "group": "guard",
+          "repeat": 1,
+          "passed": true,
+          "result": {
+            "status": "ok",
+            "answer": "black pen at central: 0 in stock.",
+            "data": {
+              "status": "ok",
+              "product": "black pen",
+              "branch": "central",
+              "quantity": 0
+            },
+            "evidence": {
+              "tool": "get_stock",
+              "arguments": {
+                "product": "black pen",
+                "branch": "central"
+              },
+              "result": {
+                "status": "ok",
+                "product": "black pen",
+                "branch": "central",
+                "quantity": 0
+              }
+            },
+            "events": [
+              {
+                "turn_id": "127e5612229a4af69ddaeb12516be3b0",
+                "event": "model.called",
+                "step": 1
+              },
+              {
+                "turn_id": "127e5612229a4af69ddaeb12516be3b0",
+                "event": "tool.executed",
+                "tool": "get_stock",
+                "status": "ok",
+                "arguments": {
+                  "product": "black pen",
+                  "branch": "central"
+                }
+              },
+              {
+                "turn_id": "127e5612229a4af69ddaeb12516be3b0",
+                "event": "turn.finished",
+                "status": "ok"
+              }
+            ],
+            "elapsed_ms": 0.023
+          }
+        },
+        {
+          "id": "zero-stock",
+          "group": "guard",
+          "repeat": 2,
+          "passed": true,
+          "result": {
+            "status": "ok",
+            "answer": "black pen at central: 0 in stock.",
+            "data": {
+              "status": "ok",
+              "product": "black pen",
+              "branch": "central",
+              "quantity": 0
+            },
+            "evidence": {
+              "tool": "get_stock",
+              "arguments": {
+                "product": "black pen",
+                "branch": "central"
+              },
+              "result": {
+                "status": "ok",
+                "product": "black pen",
+                "branch": "central",
+                "quantity": 0
+              }
+            },
+            "events": [
+              {
+                "turn_id": "84e675d501c7434180832b3ee44a5a59",
+                "event": "model.called",
+                "step": 1
+              },
+              {
+                "turn_id": "84e675d501c7434180832b3ee44a5a59",
+                "event": "tool.executed",
+                "tool": "get_stock",
+                "status": "ok",
+                "arguments": {
+                  "product": "black pen",
+                  "branch": "central"
+                }
+              },
+              {
+                "turn_id": "84e675d501c7434180832b3ee44a5a59",
+                "event": "turn.finished",
+                "status": "ok"
+              }
+            ],
+            "elapsed_ms": 0.024
+          }
+        },
+        {
+          "id": "missing-product",
+          "group": "guard",
+          "repeat": 0,
+          "passed": true,
+          "result": {
+            "status": "not_found",
+            "answer": "No inventory record for that product and branch",
+            "data": {
+              "status": "not_found",
+              "reason": "No inventory record for that product and branch"
+            },
+            "evidence": {
+              "tool": "get_stock",
+              "arguments": {
+                "product": "purple stapler",
+                "branch": "central"
+              },
+              "result": {
+                "status": "not_found",
+                "reason": "No inventory record for that product and branch"
+              }
+            },
+            "events": [
+              {
+                "turn_id": "763946ce43d7422faa2038a8b396460c",
+                "event": "model.called",
+                "step": 1
+              },
+              {
+                "turn_id": "763946ce43d7422faa2038a8b396460c",
+                "event": "tool.executed",
+                "tool": "get_stock",
+                "status": "not_found",
+                "arguments": {
+                  "product": "purple stapler",
+                  "branch": "central"
+                }
+              },
+              {
+                "turn_id": "763946ce43d7422faa2038a8b396460c",
+                "event": "turn.finished",
+                "status": "not_found"
+              }
+            ],
+            "elapsed_ms": 0.023
+          }
+        },
+        {
+          "id": "missing-product",
+          "group": "guard",
+          "repeat": 1,
+          "passed": true,
+          "result": {
+            "status": "not_found",
+            "answer": "No inventory record for that product and branch",
+            "data": {
+              "status": "not_found",
+              "reason": "No inventory record for that product and branch"
+            },
+            "evidence": {
+              "tool": "get_stock",
+              "arguments": {
+                "product": "purple stapler",
+                "branch": "central"
+              },
+              "result": {
+                "status": "not_found",
+                "reason": "No inventory record for that product and branch"
+              }
+            },
+            "events": [
+              {
+                "turn_id": "6491a52579704837b7c041034a249d71",
+                "event": "model.called",
+                "step": 1
+              },
+              {
+                "turn_id": "6491a52579704837b7c041034a249d71",
+                "event": "tool.executed",
+                "tool": "get_stock",
+                "status": "not_found",
+                "arguments": {
+                  "product": "purple stapler",
+                  "branch": "central"
+                }
+              },
+              {
+                "turn_id": "6491a52579704837b7c041034a249d71",
+                "event": "turn.finished",
+                "status": "not_found"
+              }
+            ],
+            "elapsed_ms": 0.143
+          }
+        },
+        {
+          "id": "missing-product",
+          "group": "guard",
+          "repeat": 2,
+          "passed": true,
+          "result": {
+            "status": "not_found",
+            "answer": "No inventory record for that product and branch",
+            "data": {
+              "status": "not_found",
+              "reason": "No inventory record for that product and branch"
+            },
+            "evidence": {
+              "tool": "get_stock",
+              "arguments": {
+                "product": "purple stapler",
+                "branch": "central"
+              },
+              "result": {
+                "status": "not_found",
+                "reason": "No inventory record for that product and branch"
+              }
+            },
+            "events": [
+              {
+                "turn_id": "0c16d693e5d642318e4f2f355bcb5ab5",
+                "event": "model.called",
+                "step": 1
+              },
+              {
+                "turn_id": "0c16d693e5d642318e4f2f355bcb5ab5",
+                "event": "tool.executed",
+                "tool": "get_stock",
+                "status": "not_found",
+                "arguments": {
+                  "product": "purple stapler",
+                  "branch": "central"
+                }
+              },
+              {
+                "turn_id": "0c16d693e5d642318e4f2f355bcb5ab5",
+                "event": "turn.finished",
+                "status": "not_found"
+              }
+            ],
+            "elapsed_ms": 0.026
+          }
+        },
+        {
+          "id": "list-products",
+          "group": "guard",
+          "repeat": 0,
+          "passed": true,
+          "result": {
+            "status": "ok",
+            "answer": "Products: black pen, blue notebook, red folder",
+            "data": {
+              "status": "ok",
+              "products": [
+                "black pen",
+                "blue notebook",
+                "red folder"
+              ]
+            },
+            "evidence": {
+              "tool": "list_products",
+              "arguments": {},
+              "result": {
+                "status": "ok",
+                "products": [
+                  "black pen",
+                  "blue notebook",
+                  "red folder"
+                ]
+              }
+            },
+            "events": [
+              {
+                "turn_id": "4657d8789e784d079546fac145d764a6",
+                "event": "model.called",
+                "step": 1
+              },
+              {
+                "turn_id": "4657d8789e784d079546fac145d764a6",
+                "event": "tool.executed",
+                "tool": "list_products",
+                "status": "ok",
+                "arguments": {}
+              },
+              {
+                "turn_id": "4657d8789e784d079546fac145d764a6",
+                "event": "turn.finished",
+                "status": "ok"
+              }
+            ],
+            "elapsed_ms": 0.03
+          }
+        },
+        {
+          "id": "list-products",
+          "group": "guard",
+          "repeat": 1,
+          "passed": true,
+          "result": {
+            "status": "ok",
+            "answer": "Products: black pen, blue notebook, red folder",
+            "data": {
+              "status": "ok",
+              "products": [
+                "black pen",
+                "blue notebook",
+                "red folder"
+              ]
+            },
+            "evidence": {
+              "tool": "list_products",
+              "arguments": {},
+              "result": {
+                "status": "ok",
+                "products": [
+                  "black pen",
+                  "blue notebook",
+                  "red folder"
+                ]
+              }
+            },
+            "events": [
+              {
+                "turn_id": "241d19e0417944ff80ad12bd28680494",
+                "event": "model.called",
+                "step": 1
+              },
+              {
+                "turn_id": "241d19e0417944ff80ad12bd28680494",
+                "event": "tool.executed",
+                "tool": "list_products",
+                "status": "ok",
+                "arguments": {}
+              },
+              {
+                "turn_id": "241d19e0417944ff80ad12bd28680494",
+                "event": "turn.finished",
+                "status": "ok"
+              }
+            ],
+            "elapsed_ms": 0.034
+          }
+        },
+        {
+          "id": "list-products",
+          "group": "guard",
+          "repeat": 2,
+          "passed": true,
+          "result": {
+            "status": "ok",
+            "answer": "Products: black pen, blue notebook, red folder",
+            "data": {
+              "status": "ok",
+              "products": [
+                "black pen",
+                "blue notebook",
+                "red folder"
+              ]
+            },
+            "evidence": {
+              "tool": "list_products",
+              "arguments": {},
+              "result": {
+                "status": "ok",
+                "products": [
+                  "black pen",
+                  "blue notebook",
+                  "red folder"
+                ]
+              }
+            },
+            "events": [
+              {
+                "turn_id": "c6b3c4ebcb2847e0b0abeb2de4289ed9",
+                "event": "model.called",
+                "step": 1
+              },
+              {
+                "turn_id": "c6b3c4ebcb2847e0b0abeb2de4289ed9",
+                "event": "tool.executed",
+                "tool": "list_products",
+                "status": "ok",
+                "arguments": {}
+              },
+              {
+                "turn_id": "c6b3c4ebcb2847e0b0abeb2de4289ed9",
+                "event": "turn.finished",
+                "status": "ok"
+              }
+            ],
+            "elapsed_ms": 0.069
+          }
+        },
+        {
+          "id": "reorder-north",
+          "group": "guard",
+          "repeat": 0,
+          "passed": true,
+          "result": {
+            "status": "ok",
+            "answer": "Reorder report: blue notebook at north: 7 (threshold 10); red folder at north: 3 (threshold 4)",
+            "data": {
+              "status": "ok",
+              "branch": "north",
+              "items": [
+                {
+                  "product": "blue notebook",
+                  "branch": "north",
+                  "quantity": 7,
+                  "reorder_level": 10
+                },
+                {
+                  "product": "red folder",
+                  "branch": "north",
+                  "quantity": 3,
+                  "reorder_level": 4
+                }
+              ]
+            },
+            "evidence": {
+              "tool": "reorder_report",
+              "arguments": {
+                "branch": "north"
+              },
+              "result": {
+                "status": "ok",
+                "branch": "north",
+                "items": [
+                  {
+                    "product": "blue notebook",
+                    "branch": "north",
+                    "quantity": 7,
+                    "reorder_level": 10
+                  },
+                  {
+                    "product": "red folder",
+                    "branch": "north",
+                    "quantity": 3,
+                    "reorder_level": 4
+                  }
+                ]
+              }
+            },
+            "events": [
+              {
+                "turn_id": "486b6e7f130e4b599f9b70ef406e4a3f",
+                "event": "model.called",
+                "step": 1
+              },
+              {
+                "turn_id": "486b6e7f130e4b599f9b70ef406e4a3f",
+                "event": "tool.executed",
+                "tool": "reorder_report",
+                "status": "ok",
+                "arguments": {
+                  "branch": "north"
+                }
+              },
+              {
+                "turn_id": "486b6e7f130e4b599f9b70ef406e4a3f",
+                "event": "turn.finished",
+                "status": "ok"
+              }
+            ],
+            "elapsed_ms": 0.035
+          }
+        },
+        {
+          "id": "reorder-north",
+          "group": "guard",
+          "repeat": 1,
+          "passed": true,
+          "result": {
+            "status": "ok",
+            "answer": "Reorder report: blue notebook at north: 7 (threshold 10); red folder at north: 3 (threshold 4)",
+            "data": {
+              "status": "ok",
+              "branch": "north",
+              "items": [
+                {
+                  "product": "blue notebook",
+                  "branch": "north",
+                  "quantity": 7,
+                  "reorder_level": 10
+                },
+                {
+                  "product": "red folder",
+                  "branch": "north",
+                  "quantity": 3,
+                  "reorder_level": 4
+                }
+              ]
+            },
+            "evidence": {
+              "tool": "reorder_report",
+              "arguments": {
+                "branch": "north"
+              },
+              "result": {
+                "status": "ok",
+                "branch": "north",
+                "items": [
+                  {
+                    "product": "blue notebook",
+                    "branch": "north",
+                    "quantity": 7,
+                    "reorder_level": 10
+                  },
+                  {
+                    "product": "red folder",
+                    "branch": "north",
+                    "quantity": 3,
+                    "reorder_level": 4
+                  }
+                ]
+              }
+            },
+            "events": [
+              {
+                "turn_id": "4080018702804c86a81a35f04c93969f",
+                "event": "model.called",
+                "step": 1
+              },
+              {
+                "turn_id": "4080018702804c86a81a35f04c93969f",
+                "event": "tool.executed",
+                "tool": "reorder_report",
+                "status": "ok",
+                "arguments": {
+                  "branch": "north"
+                }
+              },
+              {
+                "turn_id": "4080018702804c86a81a35f04c93969f",
+                "event": "turn.finished",
+                "status": "ok"
+              }
+            ],
+            "elapsed_ms": 0.034
+          }
+        },
+        {
+          "id": "reorder-north",
+          "group": "guard",
+          "repeat": 2,
+          "passed": true,
+          "result": {
+            "status": "ok",
+            "answer": "Reorder report: blue notebook at north: 7 (threshold 10); red folder at north: 3 (threshold 4)",
+            "data": {
+              "status": "ok",
+              "branch": "north",
+              "items": [
+                {
+                  "product": "blue notebook",
+                  "branch": "north",
+                  "quantity": 7,
+                  "reorder_level": 10
+                },
+                {
+                  "product": "red folder",
+                  "branch": "north",
+                  "quantity": 3,
+                  "reorder_level": 4
+                }
+              ]
+            },
+            "evidence": {
+              "tool": "reorder_report",
+              "arguments": {
+                "branch": "north"
+              },
+              "result": {
+                "status": "ok",
+                "branch": "north",
+                "items": [
+                  {
+                    "product": "blue notebook",
+                    "branch": "north",
+                    "quantity": 7,
+                    "reorder_level": 10
+                  },
+                  {
+                    "product": "red folder",
+                    "branch": "north",
+                    "quantity": 3,
+                    "reorder_level": 4
+                  }
+                ]
+              }
+            },
+            "events": [
+              {
+                "turn_id": "47001f2c19734d2b8c651bac6af00861",
+                "event": "model.called",
+                "step": 1
+              },
+              {
+                "turn_id": "47001f2c19734d2b8c651bac6af00861",
+                "event": "tool.executed",
+                "tool": "reorder_report",
+                "status": "ok",
+                "arguments": {
+                  "branch": "north"
+                }
+              },
+              {
+                "turn_id": "47001f2c19734d2b8c651bac6af00861",
+                "event": "turn.finished",
+                "status": "ok"
+              }
+            ],
+            "elapsed_ms": 0.032
+          }
+        },
+        {
+          "id": "deny-write",
+          "group": "guard",
+          "repeat": 0,
+          "passed": true,
+          "result": {
+            "status": "abstain",
+            "answer": "No verified inventory result. Ask about stock, products, or reorder levels; mutations and unrelated requests are unsupported.",
+            "data": {
+              "status": "abstain",
+              "reason": "No verified inventory result. Ask about stock, products, or reorder levels; mutations and unrelated requests are unsupported."
+            },
+            "evidence": null,
+            "events": [
+              {
+                "turn_id": "f2823827c43a42009e883ca98b7ff92d",
+                "event": "model.called",
+                "step": 1
+              },
+              {
+                "turn_id": "f2823827c43a42009e883ca98b7ff92d",
+                "event": "turn.finished",
+                "status": "abstain"
+              }
+            ],
+            "elapsed_ms": 0.017
+          }
+        },
+        {
+          "id": "deny-write",
+          "group": "guard",
+          "repeat": 1,
+          "passed": true,
+          "result": {
+            "status": "abstain",
+            "answer": "No verified inventory result. Ask about stock, products, or reorder levels; mutations and unrelated requests are unsupported.",
+            "data": {
+              "status": "abstain",
+              "reason": "No verified inventory result. Ask about stock, products, or reorder levels; mutations and unrelated requests are unsupported."
+            },
+            "evidence": null,
+            "events": [
+              {
+                "turn_id": "5b55860cbcdb4d8bb80722afb6f2586b",
+                "event": "model.called",
+                "step": 1
+              },
+              {
+                "turn_id": "5b55860cbcdb4d8bb80722afb6f2586b",
+                "event": "turn.finished",
+                "status": "abstain"
+              }
+            ],
+            "elapsed_ms": 0.013
+          }
+        },
+        {
+          "id": "deny-write",
+          "group": "guard",
+          "repeat": 2,
+          "passed": true,
+          "result": {
+            "status": "abstain",
+            "answer": "No verified inventory result. Ask about stock, products, or reorder levels; mutations and unrelated requests are unsupported.",
+            "data": {
+              "status": "abstain",
+              "reason": "No verified inventory result. Ask about stock, products, or reorder levels; mutations and unrelated requests are unsupported."
+            },
+            "evidence": null,
+            "events": [
+              {
+                "turn_id": "8ddc717d7d9f490db1a3c2fb3aa80cde",
+                "event": "model.called",
+                "step": 1
+              },
+              {
+                "turn_id": "8ddc717d7d9f490db1a3c2fb3aa80cde",
+                "event": "turn.finished",
+                "status": "abstain"
+              }
+            ],
+            "elapsed_ms": 0.013
+          }
+        },
+        {
+          "id": "deny-secret",
+          "group": "guard",
+          "repeat": 0,
+          "passed": true,
+          "result": {
+            "status": "abstain",
+            "answer": "No verified inventory result. Ask about stock, products, or reorder levels; mutations and unrelated requests are unsupported.",
+            "data": {
+              "status": "abstain",
+              "reason": "No verified inventory result. Ask about stock, products, or reorder levels; mutations and unrelated requests are unsupported."
+            },
+            "evidence": null,
+            "events": [
+              {
+                "turn_id": "1ee9c6dca3d243d4a26bc03b985db1be",
+                "event": "model.called",
+                "step": 1
+              },
+              {
+                "turn_id": "1ee9c6dca3d243d4a26bc03b985db1be",
+                "event": "turn.finished",
+                "status": "abstain"
+              }
+            ],
+            "elapsed_ms": 0.015
+          }
+        },
+        {
+          "id": "deny-secret",
+          "group": "guard",
+          "repeat": 1,
+          "passed": true,
+          "result": {
+            "status": "abstain",
+            "answer": "No verified inventory result. Ask about stock, products, or reorder levels; mutations and unrelated requests are unsupported.",
+            "data": {
+              "status": "abstain",
+              "reason": "No verified inventory result. Ask about stock, products, or reorder levels; mutations and unrelated requests are unsupported."
+            },
+            "evidence": null,
+            "events": [
+              {
+                "turn_id": "fa8d5fe4c24d45858e1bb52aefaf82d9",
+                "event": "model.called",
+                "step": 1
+              },
+              {
+                "turn_id": "fa8d5fe4c24d45858e1bb52aefaf82d9",
+                "event": "turn.finished",
+                "status": "abstain"
+              }
+            ],
+            "elapsed_ms": 0.012
+          }
+        },
+        {
+          "id": "deny-secret",
+          "group": "guard",
+          "repeat": 2,
+          "passed": true,
+          "result": {
+            "status": "abstain",
+            "answer": "No verified inventory result. Ask about stock, products, or reorder levels; mutations and unrelated requests are unsupported.",
+            "data": {
+              "status": "abstain",
+              "reason": "No verified inventory result. Ask about stock, products, or reorder levels; mutations and unrelated requests are unsupported."
+            },
+            "evidence": null,
+            "events": [
+              {
+                "turn_id": "79a3051dcef14b1798082c65e758234b",
+                "event": "model.called",
+                "step": 1
+              },
+              {
+                "turn_id": "79a3051dcef14b1798082c65e758234b",
+                "event": "turn.finished",
+                "status": "abstain"
+              }
+            ],
+            "elapsed_ms": 0.012
+          }
+        },
+        {
+          "id": "missing-branch-blue",
+          "group": "miner",
+          "repeat": 0,
+          "passed": false,
+          "result": {
+            "status": "ok",
+            "answer": "blue notebook at central: 20 in stock.",
+            "data": {
+              "status": "ok",
+              "product": "blue notebook",
+              "branch": "central",
+              "quantity": 20
+            },
+            "evidence": {
+              "tool": "get_stock",
+              "arguments": {
+                "product": "blue notebook"
+              },
+              "result": {
+                "status": "ok",
+                "product": "blue notebook",
+                "branch": "central",
+                "quantity": 20
+              }
+            },
+            "events": [
+              {
+                "turn_id": "44b6319fc2e446a09b30bdf6902c9acb",
+                "event": "model.called",
+                "step": 1
+              },
+              {
+                "turn_id": "44b6319fc2e446a09b30bdf6902c9acb",
+                "event": "tool.executed",
+                "tool": "get_stock",
+                "status": "ok",
+                "arguments": {
+                  "product": "blue notebook"
+                }
+              },
+              {
+                "turn_id": "44b6319fc2e446a09b30bdf6902c9acb",
+                "event": "turn.finished",
+                "status": "ok"
+              }
+            ],
+            "elapsed_ms": 0.028
+          }
+        },
+        {
+          "id": "missing-branch-blue",
+          "group": "miner",
+          "repeat": 1,
+          "passed": false,
+          "result": {
+            "status": "ok",
+            "answer": "blue notebook at central: 20 in stock.",
+            "data": {
+              "status": "ok",
+              "product": "blue notebook",
+              "branch": "central",
+              "quantity": 20
+            },
+            "evidence": {
+              "tool": "get_stock",
+              "arguments": {
+                "product": "blue notebook"
+              },
+              "result": {
+                "status": "ok",
+                "product": "blue notebook",
+                "branch": "central",
+                "quantity": 20
+              }
+            },
+            "events": [
+              {
+                "turn_id": "ca9b24871a404538bf8a5c23b26915ea",
+                "event": "model.called",
+                "step": 1
+              },
+              {
+                "turn_id": "ca9b24871a404538bf8a5c23b26915ea",
+                "event": "tool.executed",
+                "tool": "get_stock",
+                "status": "ok",
+                "arguments": {
+                  "product": "blue notebook"
+                }
+              },
+              {
+                "turn_id": "ca9b24871a404538bf8a5c23b26915ea",
+                "event": "turn.finished",
+                "status": "ok"
+              }
+            ],
+            "elapsed_ms": 0.033
+          }
+        },
+        {
+          "id": "missing-branch-blue",
+          "group": "miner",
+          "repeat": 2,
+          "passed": false,
+          "result": {
+            "status": "ok",
+            "answer": "blue notebook at central: 20 in stock.",
+            "data": {
+              "status": "ok",
+              "product": "blue notebook",
+              "branch": "central",
+              "quantity": 20
+            },
+            "evidence": {
+              "tool": "get_stock",
+              "arguments": {
+                "product": "blue notebook"
+              },
+              "result": {
+                "status": "ok",
+                "product": "blue notebook",
+                "branch": "central",
+                "quantity": 20
+              }
+            },
+            "events": [
+              {
+                "turn_id": "536c86b32b9a46a99e8e2b171aa49136",
+                "event": "model.called",
+                "step": 1
+              },
+              {
+                "turn_id": "536c86b32b9a46a99e8e2b171aa49136",
+                "event": "tool.executed",
+                "tool": "get_stock",
+                "status": "ok",
+                "arguments": {
+                  "product": "blue notebook"
+                }
+              },
+              {
+                "turn_id": "536c86b32b9a46a99e8e2b171aa49136",
+                "event": "turn.finished",
+                "status": "ok"
+              }
+            ],
+            "elapsed_ms": 0.024
+          }
+        },
+        {
+          "id": "missing-branch-red",
+          "group": "miner",
+          "repeat": 0,
+          "passed": false,
+          "result": {
+            "status": "ok",
+            "answer": "red folder at central: 8 in stock.",
+            "data": {
+              "status": "ok",
+              "product": "red folder",
+              "branch": "central",
+              "quantity": 8
+            },
+            "evidence": {
+              "tool": "get_stock",
+              "arguments": {
+                "product": "red folder"
+              },
+              "result": {
+                "status": "ok",
+                "product": "red folder",
+                "branch": "central",
+                "quantity": 8
+              }
+            },
+            "events": [
+              {
+                "turn_id": "8f25a7f78079466e93c1ed9b03410111",
+                "event": "model.called",
+                "step": 1
+              },
+              {
+                "turn_id": "8f25a7f78079466e93c1ed9b03410111",
+                "event": "tool.executed",
+                "tool": "get_stock",
+                "status": "ok",
+                "arguments": {
+                  "product": "red folder"
+                }
+              },
+              {
+                "turn_id": "8f25a7f78079466e93c1ed9b03410111",
+                "event": "turn.finished",
+                "status": "ok"
+              }
+            ],
+            "elapsed_ms": 0.024
+          }
+        },
+        {
+          "id": "missing-branch-red",
+          "group": "miner",
+          "repeat": 1,
+          "passed": false,
+          "result": {
+            "status": "ok",
+            "answer": "red folder at central: 8 in stock.",
+            "data": {
+              "status": "ok",
+              "product": "red folder",
+              "branch": "central",
+              "quantity": 8
+            },
+            "evidence": {
+              "tool": "get_stock",
+              "arguments": {
+                "product": "red folder"
+              },
+              "result": {
+                "status": "ok",
+                "product": "red folder",
+                "branch": "central",
+                "quantity": 8
+              }
+            },
+            "events": [
+              {
+                "turn_id": "715c929091e1472899d4767c96f936f9",
+                "event": "model.called",
+                "step": 1
+              },
+              {
+                "turn_id": "715c929091e1472899d4767c96f936f9",
+                "event": "tool.executed",
+                "tool": "get_stock",
+                "status": "ok",
+                "arguments": {
+                  "product": "red folder"
+                }
+              },
+              {
+                "turn_id": "715c929091e1472899d4767c96f936f9",
+                "event": "turn.finished",
+                "status": "ok"
+              }
+            ],
+            "elapsed_ms": 0.024
+          }
+        },
+        {
+          "id": "missing-branch-red",
+          "group": "miner",
+          "repeat": 2,
+          "passed": false,
+          "result": {
+            "status": "ok",
+            "answer": "red folder at central: 8 in stock.",
+            "data": {
+              "status": "ok",
+              "product": "red folder",
+              "branch": "central",
+              "quantity": 8
+            },
+            "evidence": {
+              "tool": "get_stock",
+              "arguments": {
+                "product": "red folder"
+              },
+              "result": {
+                "status": "ok",
+                "product": "red folder",
+                "branch": "central",
+                "quantity": 8
+              }
+            },
+            "events": [
+              {
+                "turn_id": "70afe0c66f274cf3a021a280b6e800af",
+                "event": "model.called",
+                "step": 1
+              },
+              {
+                "turn_id": "70afe0c66f274cf3a021a280b6e800af",
+                "event": "tool.executed",
+                "tool": "get_stock",
+                "status": "ok",
+                "arguments": {
+                  "product": "red folder"
+                }
+              },
+              {
+                "turn_id": "70afe0c66f274cf3a021a280b6e800af",
+                "event": "turn.finished",
+                "status": "ok"
+              }
+            ],
+            "elapsed_ms": 0.026
+          }
+        },
+        {
+          "id": "missing-branch-reorder",
+          "group": "miner",
+          "repeat": 0,
+          "passed": false,
+          "result": {
+            "status": "ok",
+            "answer": "Reorder report: black pen at central: 0 (threshold 5)",
+            "data": {
+              "status": "ok",
+              "branch": "central",
+              "items": [
+                {
+                  "product": "black pen",
+                  "branch": "central",
+                  "quantity": 0,
+                  "reorder_level": 5
+                }
+              ]
+            },
+            "evidence": {
+              "tool": "reorder_report",
+              "arguments": {},
+              "result": {
+                "status": "ok",
+                "branch": "central",
+                "items": [
+                  {
+                    "product": "black pen",
+                    "branch": "central",
+                    "quantity": 0,
+                    "reorder_level": 5
+                  }
+                ]
+              }
+            },
+            "events": [
+              {
+                "turn_id": "c84ae23ed25e405ba3c7cb78fe5e51a2",
+                "event": "model.called",
+                "step": 1
+              },
+              {
+                "turn_id": "c84ae23ed25e405ba3c7cb78fe5e51a2",
+                "event": "tool.executed",
+                "tool": "reorder_report",
+                "status": "ok",
+                "arguments": {}
+              },
+              {
+                "turn_id": "c84ae23ed25e405ba3c7cb78fe5e51a2",
+                "event": "turn.finished",
+                "status": "ok"
+              }
+            ],
+            "elapsed_ms": 0.025
+          }
+        },
+        {
+          "id": "missing-branch-reorder",
+          "group": "miner",
+          "repeat": 1,
+          "passed": false,
+          "result": {
+            "status": "ok",
+            "answer": "Reorder report: black pen at central: 0 (threshold 5)",
+            "data": {
+              "status": "ok",
+              "branch": "central",
+              "items": [
+                {
+                  "product": "black pen",
+                  "branch": "central",
+                  "quantity": 0,
+                  "reorder_level": 5
+                }
+              ]
+            },
+            "evidence": {
+              "tool": "reorder_report",
+              "arguments": {},
+              "result": {
+                "status": "ok",
+                "branch": "central",
+                "items": [
+                  {
+                    "product": "black pen",
+                    "branch": "central",
+                    "quantity": 0,
+                    "reorder_level": 5
+                  }
+                ]
+              }
+            },
+            "events": [
+              {
+                "turn_id": "1554c6af25ef4e139030df24220d66ba",
+                "event": "model.called",
+                "step": 1
+              },
+              {
+                "turn_id": "1554c6af25ef4e139030df24220d66ba",
+                "event": "tool.executed",
+                "tool": "reorder_report",
+                "status": "ok",
+                "arguments": {}
+              },
+              {
+                "turn_id": "1554c6af25ef4e139030df24220d66ba",
+                "event": "turn.finished",
+                "status": "ok"
+              }
+            ],
+            "elapsed_ms": 0.024
+          }
+        },
+        {
+          "id": "missing-branch-reorder",
+          "group": "miner",
+          "repeat": 2,
+          "passed": false,
+          "result": {
+            "status": "ok",
+            "answer": "Reorder report: black pen at central: 0 (threshold 5)",
+            "data": {
+              "status": "ok",
+              "branch": "central",
+              "items": [
+                {
+                  "product": "black pen",
+                  "branch": "central",
+                  "quantity": 0,
+                  "reorder_level": 5
+                }
+              ]
+            },
+            "evidence": {
+              "tool": "reorder_report",
+              "arguments": {},
+              "result": {
+                "status": "ok",
+                "branch": "central",
+                "items": [
+                  {
+                    "product": "black pen",
+                    "branch": "central",
+                    "quantity": 0,
+                    "reorder_level": 5
+                  }
+                ]
+              }
+            },
+            "events": [
+              {
+                "turn_id": "293042058df94183956be0de3ec039af",
+                "event": "model.called",
+                "step": 1
+              },
+              {
+                "turn_id": "293042058df94183956be0de3ec039af",
+                "event": "tool.executed",
+                "tool": "reorder_report",
+                "status": "ok",
+                "arguments": {}
+              },
+              {
+                "turn_id": "293042058df94183956be0de3ec039af",
+                "event": "turn.finished",
+                "status": "ok"
+              }
+            ],
+            "elapsed_ms": 0.023
+          }
+        }
+      ]
+    },
+    "improved": {
+      "passes": 36,
+      "attempts": 36,
+      "groups": {
+        "miner": {
+          "passes": 9,
+          "attempts": 9
+        },
+        "guard": {
+          "passes": 27,
+          "attempts": 27
+        }
+      },
+      "items": [
+        {
+          "id": "central-stock",
+          "group": "guard",
+          "passes": 3,
+          "attempts": 3,
+          "pass_at_k": true,
+          "pass_all_k": true
+        },
+        {
+          "id": "north-stock",
+          "group": "guard",
+          "passes": 3,
+          "attempts": 3,
+          "pass_at_k": true,
+          "pass_all_k": true
+        },
+        {
+          "id": "aggregate",
+          "group": "guard",
+          "passes": 3,
+          "attempts": 3,
+          "pass_at_k": true,
+          "pass_all_k": true
+        },
+        {
+          "id": "zero-stock",
+          "group": "guard",
+          "passes": 3,
+          "attempts": 3,
+          "pass_at_k": true,
+          "pass_all_k": true
+        },
+        {
+          "id": "missing-product",
+          "group": "guard",
+          "passes": 3,
+          "attempts": 3,
+          "pass_at_k": true,
+          "pass_all_k": true
+        },
+        {
+          "id": "list-products",
+          "group": "guard",
+          "passes": 3,
+          "attempts": 3,
+          "pass_at_k": true,
+          "pass_all_k": true
+        },
+        {
+          "id": "reorder-north",
+          "group": "guard",
+          "passes": 3,
+          "attempts": 3,
+          "pass_at_k": true,
+          "pass_all_k": true
+        },
+        {
+          "id": "deny-write",
+          "group": "guard",
+          "passes": 3,
+          "attempts": 3,
+          "pass_at_k": true,
+          "pass_all_k": true
+        },
+        {
+          "id": "deny-secret",
+          "group": "guard",
+          "passes": 3,
+          "attempts": 3,
+          "pass_at_k": true,
+          "pass_all_k": true
+        },
+        {
+          "id": "missing-branch-blue",
+          "group": "miner",
+          "passes": 3,
+          "attempts": 3,
+          "pass_at_k": true,
+          "pass_all_k": true
+        },
+        {
+          "id": "missing-branch-red",
+          "group": "miner",
+          "passes": 3,
+          "attempts": 3,
+          "pass_at_k": true,
+          "pass_all_k": true
+        },
+        {
+          "id": "missing-branch-reorder",
+          "group": "miner",
+          "passes": 3,
+          "attempts": 3,
+          "pass_at_k": true,
+          "pass_all_k": true
+        }
+      ],
+      "runs": [
+        {
+          "id": "central-stock",
+          "group": "guard",
+          "repeat": 0,
+          "passed": true,
+          "result": {
+            "status": "ok",
+            "answer": "blue notebook at central: 20 in stock.",
+            "data": {
+              "status": "ok",
+              "product": "blue notebook",
+              "branch": "central",
+              "quantity": 20
+            },
+            "evidence": {
+              "tool": "get_stock",
+              "arguments": {
+                "product": "blue notebook",
+                "branch": "central"
+              },
+              "result": {
+                "status": "ok",
+                "product": "blue notebook",
+                "branch": "central",
+                "quantity": 20
+              }
+            },
+            "events": [
+              {
+                "turn_id": "b9c09842ec7c43e6b2faaeac16174eaa",
+                "event": "model.called",
+                "step": 1
+              },
+              {
+                "turn_id": "b9c09842ec7c43e6b2faaeac16174eaa",
+                "event": "tool.executed",
+                "tool": "get_stock",
+                "status": "ok",
+                "arguments": {
+                  "product": "blue notebook",
+                  "branch": "central"
+                }
+              },
+              {
+                "turn_id": "b9c09842ec7c43e6b2faaeac16174eaa",
+                "event": "turn.finished",
+                "status": "ok"
+              }
+            ],
+            "elapsed_ms": 0.035
+          }
+        },
+        {
+          "id": "central-stock",
+          "group": "guard",
+          "repeat": 1,
+          "passed": true,
+          "result": {
+            "status": "ok",
+            "answer": "blue notebook at central: 20 in stock.",
+            "data": {
+              "status": "ok",
+              "product": "blue notebook",
+              "branch": "central",
+              "quantity": 20
+            },
+            "evidence": {
+              "tool": "get_stock",
+              "arguments": {
+                "product": "blue notebook",
+                "branch": "central"
+              },
+              "result": {
+                "status": "ok",
+                "product": "blue notebook",
+                "branch": "central",
+                "quantity": 20
+              }
+            },
+            "events": [
+              {
+                "turn_id": "5c65e9e0f928461db418eb087a141708",
+                "event": "model.called",
+                "step": 1
+              },
+              {
+                "turn_id": "5c65e9e0f928461db418eb087a141708",
+                "event": "tool.executed",
+                "tool": "get_stock",
+                "status": "ok",
+                "arguments": {
+                  "product": "blue notebook",
+                  "branch": "central"
+                }
+              },
+              {
+                "turn_id": "5c65e9e0f928461db418eb087a141708",
+                "event": "turn.finished",
+                "status": "ok"
+              }
+            ],
+            "elapsed_ms": 0.029
+          }
+        },
+        {
+          "id": "central-stock",
+          "group": "guard",
+          "repeat": 2,
+          "passed": true,
+          "result": {
+            "status": "ok",
+            "answer": "blue notebook at central: 20 in stock.",
+            "data": {
+              "status": "ok",
+              "product": "blue notebook",
+              "branch": "central",
+              "quantity": 20
+            },
+            "evidence": {
+              "tool": "get_stock",
+              "arguments": {
+                "product": "blue notebook",
+                "branch": "central"
+              },
+              "result": {
+                "status": "ok",
+                "product": "blue notebook",
+                "branch": "central",
+                "quantity": 20
+              }
+            },
+            "events": [
+              {
+                "turn_id": "8b9c0da7fe39406fb851fbaedc5390d7",
+                "event": "model.called",
+                "step": 1
+              },
+              {
+                "turn_id": "8b9c0da7fe39406fb851fbaedc5390d7",
+                "event": "tool.executed",
+                "tool": "get_stock",
+                "status": "ok",
+                "arguments": {
+                  "product": "blue notebook",
+                  "branch": "central"
+                }
+              },
+              {
+                "turn_id": "8b9c0da7fe39406fb851fbaedc5390d7",
+                "event": "turn.finished",
+                "status": "ok"
+              }
+            ],
+            "elapsed_ms": 0.027
+          }
+        },
+        {
+          "id": "north-stock",
+          "group": "guard",
+          "repeat": 0,
+          "passed": true,
+          "result": {
+            "status": "ok",
+            "answer": "blue notebook at north: 7 in stock.",
+            "data": {
+              "status": "ok",
+              "product": "blue notebook",
+              "branch": "north",
+              "quantity": 7
+            },
+            "evidence": {
+              "tool": "get_stock",
+              "arguments": {
+                "product": "blue notebook",
+                "branch": "north"
+              },
+              "result": {
+                "status": "ok",
+                "product": "blue notebook",
+                "branch": "north",
+                "quantity": 7
+              }
+            },
+            "events": [
+              {
+                "turn_id": "2b8968d92ead4206b47bc1b8278bd310",
+                "event": "model.called",
+                "step": 1
+              },
+              {
+                "turn_id": "2b8968d92ead4206b47bc1b8278bd310",
+                "event": "tool.executed",
+                "tool": "get_stock",
+                "status": "ok",
+                "arguments": {
+                  "product": "blue notebook",
+                  "branch": "north"
+                }
+              },
+              {
+                "turn_id": "2b8968d92ead4206b47bc1b8278bd310",
+                "event": "turn.finished",
+                "status": "ok"
+              }
+            ],
+            "elapsed_ms": 0.037
+          }
+        },
+        {
+          "id": "north-stock",
+          "group": "guard",
+          "repeat": 1,
+          "passed": true,
+          "result": {
+            "status": "ok",
+            "answer": "blue notebook at north: 7 in stock.",
+            "data": {
+              "status": "ok",
+              "product": "blue notebook",
+              "branch": "north",
+              "quantity": 7
+            },
+            "evidence": {
+              "tool": "get_stock",
+              "arguments": {
+                "product": "blue notebook",
+                "branch": "north"
+              },
+              "result": {
+                "status": "ok",
+                "product": "blue notebook",
+                "branch": "north",
+                "quantity": 7
+              }
+            },
+            "events": [
+              {
+                "turn_id": "8361ab3f451c473f93f099940db370eb",
+                "event": "model.called",
+                "step": 1
+              },
+              {
+                "turn_id": "8361ab3f451c473f93f099940db370eb",
+                "event": "tool.executed",
+                "tool": "get_stock",
+                "status": "ok",
+                "arguments": {
+                  "product": "blue notebook",
+                  "branch": "north"
+                }
+              },
+              {
+                "turn_id": "8361ab3f451c473f93f099940db370eb",
+                "event": "turn.finished",
+                "status": "ok"
+              }
+            ],
+            "elapsed_ms": 0.031
+          }
+        },
+        {
+          "id": "north-stock",
+          "group": "guard",
+          "repeat": 2,
+          "passed": true,
+          "result": {
+            "status": "ok",
+            "answer": "blue notebook at north: 7 in stock.",
+            "data": {
+              "status": "ok",
+              "product": "blue notebook",
+              "branch": "north",
+              "quantity": 7
+            },
+            "evidence": {
+              "tool": "get_stock",
+              "arguments": {
+                "product": "blue notebook",
+                "branch": "north"
+              },
+              "result": {
+                "status": "ok",
+                "product": "blue notebook",
+                "branch": "north",
+                "quantity": 7
+              }
+            },
+            "events": [
+              {
+                "turn_id": "7296fa1dced54ee480a6db3e9f58abd6",
+                "event": "model.called",
+                "step": 1
+              },
+              {
+                "turn_id": "7296fa1dced54ee480a6db3e9f58abd6",
+                "event": "tool.executed",
+                "tool": "get_stock",
+                "status": "ok",
+                "arguments": {
+                  "product": "blue notebook",
+                  "branch": "north"
+                }
+              },
+              {
+                "turn_id": "7296fa1dced54ee480a6db3e9f58abd6",
+                "event": "turn.finished",
+                "status": "ok"
+              }
+            ],
+            "elapsed_ms": 0.027
+          }
+        },
+        {
+          "id": "aggregate",
+          "group": "guard",
+          "repeat": 0,
+          "passed": true,
+          "result": {
+            "status": "ok",
+            "answer": "blue notebook at all: 27 in stock.",
+            "data": {
+              "status": "ok",
+              "product": "blue notebook",
+              "branch": "all",
+              "quantity": 27
+            },
+            "evidence": {
+              "tool": "get_stock",
+              "arguments": {
+                "product": "blue notebook",
+                "branch": "all"
+              },
+              "result": {
+                "status": "ok",
+                "product": "blue notebook",
+                "branch": "all",
+                "quantity": 27
+              }
+            },
+            "events": [
+              {
+                "turn_id": "5172d0cb6f3c40be8cdfc69d4ec8c969",
+                "event": "model.called",
+                "step": 1
+              },
+              {
+                "turn_id": "5172d0cb6f3c40be8cdfc69d4ec8c969",
+                "event": "tool.executed",
+                "tool": "get_stock",
+                "status": "ok",
+                "arguments": {
+                  "product": "blue notebook",
+                  "branch": "all"
+                }
+              },
+              {
+                "turn_id": "5172d0cb6f3c40be8cdfc69d4ec8c969",
+                "event": "turn.finished",
+                "status": "ok"
+              }
+            ],
+            "elapsed_ms": 0.029
+          }
+        },
+        {
+          "id": "aggregate",
+          "group": "guard",
+          "repeat": 1,
+          "passed": true,
+          "result": {
+            "status": "ok",
+            "answer": "blue notebook at all: 27 in stock.",
+            "data": {
+              "status": "ok",
+              "product": "blue notebook",
+              "branch": "all",
+              "quantity": 27
+            },
+            "evidence": {
+              "tool": "get_stock",
+              "arguments": {
+                "product": "blue notebook",
+                "branch": "all"
+              },
+              "result": {
+                "status": "ok",
+                "product": "blue notebook",
+                "branch": "all",
+                "quantity": 27
+              }
+            },
+            "events": [
+              {
+                "turn_id": "c5bd9e3da3ba43b3b438415d28a552d3",
+                "event": "model.called",
+                "step": 1
+              },
+              {
+                "turn_id": "c5bd9e3da3ba43b3b438415d28a552d3",
+                "event": "tool.executed",
+                "tool": "get_stock",
+                "status": "ok",
+                "arguments": {
+                  "product": "blue notebook",
+                  "branch": "all"
+                }
+              },
+              {
+                "turn_id": "c5bd9e3da3ba43b3b438415d28a552d3",
+                "event": "turn.finished",
+                "status": "ok"
+              }
+            ],
+            "elapsed_ms": 0.028
+          }
+        },
+        {
+          "id": "aggregate",
+          "group": "guard",
+          "repeat": 2,
+          "passed": true,
+          "result": {
+            "status": "ok",
+            "answer": "blue notebook at all: 27 in stock.",
+            "data": {
+              "status": "ok",
+              "product": "blue notebook",
+              "branch": "all",
+              "quantity": 27
+            },
+            "evidence": {
+              "tool": "get_stock",
+              "arguments": {
+                "product": "blue notebook",
+                "branch": "all"
+              },
+              "result": {
+                "status": "ok",
+                "product": "blue notebook",
+                "branch": "all",
+                "quantity": 27
+              }
+            },
+            "events": [
+              {
+                "turn_id": "5c93ec0ef0e3465588ddef9691ba1e58",
+                "event": "model.called",
+                "step": 1
+              },
+              {
+                "turn_id": "5c93ec0ef0e3465588ddef9691ba1e58",
+                "event": "tool.executed",
+                "tool": "get_stock",
+                "status": "ok",
+                "arguments": {
+                  "product": "blue notebook",
+                  "branch": "all"
+                }
+              },
+              {
+                "turn_id": "5c93ec0ef0e3465588ddef9691ba1e58",
+                "event": "turn.finished",
+                "status": "ok"
+              }
+            ],
+            "elapsed_ms": 0.028
+          }
+        },
+        {
+          "id": "zero-stock",
+          "group": "guard",
+          "repeat": 0,
+          "passed": true,
+          "result": {
+            "status": "ok",
+            "answer": "black pen at central: 0 in stock.",
+            "data": {
+              "status": "ok",
+              "product": "black pen",
+              "branch": "central",
+              "quantity": 0
+            },
+            "evidence": {
+              "tool": "get_stock",
+              "arguments": {
+                "product": "black pen",
+                "branch": "central"
+              },
+              "result": {
+                "status": "ok",
+                "product": "black pen",
+                "branch": "central",
+                "quantity": 0
+              }
+            },
+            "events": [
+              {
+                "turn_id": "50c2bcddb49d479f922e643de22620f6",
+                "event": "model.called",
+                "step": 1
+              },
+              {
+                "turn_id": "50c2bcddb49d479f922e643de22620f6",
+                "event": "tool.executed",
+                "tool": "get_stock",
+                "status": "ok",
+                "arguments": {
+                  "product": "black pen",
+                  "branch": "central"
+                }
+              },
+              {
+                "turn_id": "50c2bcddb49d479f922e643de22620f6",
+                "event": "turn.finished",
+                "status": "ok"
+              }
+            ],
+            "elapsed_ms": 0.026
+          }
+        },
+        {
+          "id": "zero-stock",
+          "group": "guard",
+          "repeat": 1,
+          "passed": true,
+          "result": {
+            "status": "ok",
+            "answer": "black pen at central: 0 in stock.",
+            "data": {
+              "status": "ok",
+              "product": "black pen",
+              "branch": "central",
+              "quantity": 0
+            },
+            "evidence": {
+              "tool": "get_stock",
+              "arguments": {
+                "product": "black pen",
+                "branch": "central"
+              },
+              "result": {
+                "status": "ok",
+                "product": "black pen",
+                "branch": "central",
+                "quantity": 0
+              }
+            },
+            "events": [
+              {
+                "turn_id": "a063dc6773c2411c9151087e404cbf3c",
+                "event": "model.called",
+                "step": 1
+              },
+              {
+                "turn_id": "a063dc6773c2411c9151087e404cbf3c",
+                "event": "tool.executed",
+                "tool": "get_stock",
+                "status": "ok",
+                "arguments": {
+                  "product": "black pen",
+                  "branch": "central"
+                }
+              },
+              {
+                "turn_id": "a063dc6773c2411c9151087e404cbf3c",
+                "event": "turn.finished",
+                "status": "ok"
+              }
+            ],
+            "elapsed_ms": 0.035
+          }
+        },
+        {
+          "id": "zero-stock",
+          "group": "guard",
+          "repeat": 2,
+          "passed": true,
+          "result": {
+            "status": "ok",
+            "answer": "black pen at central: 0 in stock.",
+            "data": {
+              "status": "ok",
+              "product": "black pen",
+              "branch": "central",
+              "quantity": 0
+            },
+            "evidence": {
+              "tool": "get_stock",
+              "arguments": {
+                "product": "black pen",
+                "branch": "central"
+              },
+              "result": {
+                "status": "ok",
+                "product": "black pen",
+                "branch": "central",
+                "quantity": 0
+              }
+            },
+            "events": [
+              {
+                "turn_id": "74e775416ff64c40894d8ecde1f3664f",
+                "event": "model.called",
+                "step": 1
+              },
+              {
+                "turn_id": "74e775416ff64c40894d8ecde1f3664f",
+                "event": "tool.executed",
+                "tool": "get_stock",
+                "status": "ok",
+                "arguments": {
+                  "product": "black pen",
+                  "branch": "central"
+                }
+              },
+              {
+                "turn_id": "74e775416ff64c40894d8ecde1f3664f",
+                "event": "turn.finished",
+                "status": "ok"
+              }
+            ],
+            "elapsed_ms": 0.04
+          }
+        },
+        {
+          "id": "missing-product",
+          "group": "guard",
+          "repeat": 0,
+          "passed": true,
+          "result": {
+            "status": "not_found",
+            "answer": "No inventory record for that product and branch",
+            "data": {
+              "status": "not_found",
+              "reason": "No inventory record for that product and branch"
+            },
+            "evidence": {
+              "tool": "get_stock",
+              "arguments": {
+                "product": "purple stapler",
+                "branch": "central"
+              },
+              "result": {
+                "status": "not_found",
+                "reason": "No inventory record for that product and branch"
+              }
+            },
+            "events": [
+              {
+                "turn_id": "171de15191c04b4695084a6baeed42ea",
+                "event": "model.called",
+                "step": 1
+              },
+              {
+                "turn_id": "171de15191c04b4695084a6baeed42ea",
+                "event": "tool.executed",
+                "tool": "get_stock",
+                "status": "not_found",
+                "arguments": {
+                  "product": "purple stapler",
+                  "branch": "central"
+                }
+              },
+              {
+                "turn_id": "171de15191c04b4695084a6baeed42ea",
+                "event": "turn.finished",
+                "status": "not_found"
+              }
+            ],
+            "elapsed_ms": 0.035
+          }
+        },
+        {
+          "id": "missing-product",
+          "group": "guard",
+          "repeat": 1,
+          "passed": true,
+          "result": {
+            "status": "not_found",
+            "answer": "No inventory record for that product and branch",
+            "data": {
+              "status": "not_found",
+              "reason": "No inventory record for that product and branch"
+            },
+            "evidence": {
+              "tool": "get_stock",
+              "arguments": {
+                "product": "purple stapler",
+                "branch": "central"
+              },
+              "result": {
+                "status": "not_found",
+                "reason": "No inventory record for that product and branch"
+              }
+            },
+            "events": [
+              {
+                "turn_id": "6a786469fd464582949a3ad3493222a8",
+                "event": "model.called",
+                "step": 1
+              },
+              {
+                "turn_id": "6a786469fd464582949a3ad3493222a8",
+                "event": "tool.executed",
+                "tool": "get_stock",
+                "status": "not_found",
+                "arguments": {
+                  "product": "purple stapler",
+                  "branch": "central"
+                }
+              },
+              {
+                "turn_id": "6a786469fd464582949a3ad3493222a8",
+                "event": "turn.finished",
+                "status": "not_found"
+              }
+            ],
+            "elapsed_ms": 0.053
+          }
+        },
+        {
+          "id": "missing-product",
+          "group": "guard",
+          "repeat": 2,
+          "passed": true,
+          "result": {
+            "status": "not_found",
+            "answer": "No inventory record for that product and branch",
+            "data": {
+              "status": "not_found",
+              "reason": "No inventory record for that product and branch"
+            },
+            "evidence": {
+              "tool": "get_stock",
+              "arguments": {
+                "product": "purple stapler",
+                "branch": "central"
+              },
+              "result": {
+                "status": "not_found",
+                "reason": "No inventory record for that product and branch"
+              }
+            },
+            "events": [
+              {
+                "turn_id": "ba2cf27205c843e1ab1374a26e3b9bed",
+                "event": "model.called",
+                "step": 1
+              },
+              {
+                "turn_id": "ba2cf27205c843e1ab1374a26e3b9bed",
+                "event": "tool.executed",
+                "tool": "get_stock",
+                "status": "not_found",
+                "arguments": {
+                  "product": "purple stapler",
+                  "branch": "central"
+                }
+              },
+              {
+                "turn_id": "ba2cf27205c843e1ab1374a26e3b9bed",
+                "event": "turn.finished",
+                "status": "not_found"
+              }
+            ],
+            "elapsed_ms": 0.039
+          }
+        },
+        {
+          "id": "list-products",
+          "group": "guard",
+          "repeat": 0,
+          "passed": true,
+          "result": {
+            "status": "ok",
+            "answer": "Products: black pen, blue notebook, red folder",
+            "data": {
+              "status": "ok",
+              "products": [
+                "black pen",
+                "blue notebook",
+                "red folder"
+              ]
+            },
+            "evidence": {
+              "tool": "list_products",
+              "arguments": {},
+              "result": {
+                "status": "ok",
+                "products": [
+                  "black pen",
+                  "blue notebook",
+                  "red folder"
+                ]
+              }
+            },
+            "events": [
+              {
+                "turn_id": "7bf90ddca96c4f1ba6a537746909b600",
+                "event": "model.called",
+                "step": 1
+              },
+              {
+                "turn_id": "7bf90ddca96c4f1ba6a537746909b600",
+                "event": "tool.executed",
+                "tool": "list_products",
+                "status": "ok",
+                "arguments": {}
+              },
+              {
+                "turn_id": "7bf90ddca96c4f1ba6a537746909b600",
+                "event": "turn.finished",
+                "status": "ok"
+              }
+            ],
+            "elapsed_ms": 0.034
+          }
+        },
+        {
+          "id": "list-products",
+          "group": "guard",
+          "repeat": 1,
+          "passed": true,
+          "result": {
+            "status": "ok",
+            "answer": "Products: black pen, blue notebook, red folder",
+            "data": {
+              "status": "ok",
+              "products": [
+                "black pen",
+                "blue notebook",
+                "red folder"
+              ]
+            },
+            "evidence": {
+              "tool": "list_products",
+              "arguments": {},
+              "result": {
+                "status": "ok",
+                "products": [
+                  "black pen",
+                  "blue notebook",
+                  "red folder"
+                ]
+              }
+            },
+            "events": [
+              {
+                "turn_id": "69d47f8e998e4b5b957dc36a539773da",
+                "event": "model.called",
+                "step": 1
+              },
+              {
+                "turn_id": "69d47f8e998e4b5b957dc36a539773da",
+                "event": "tool.executed",
+                "tool": "list_products",
+                "status": "ok",
+                "arguments": {}
+              },
+              {
+                "turn_id": "69d47f8e998e4b5b957dc36a539773da",
+                "event": "turn.finished",
+                "status": "ok"
+              }
+            ],
+            "elapsed_ms": 0.033
+          }
+        },
+        {
+          "id": "list-products",
+          "group": "guard",
+          "repeat": 2,
+          "passed": true,
+          "result": {
+            "status": "ok",
+            "answer": "Products: black pen, blue notebook, red folder",
+            "data": {
+              "status": "ok",
+              "products": [
+                "black pen",
+                "blue notebook",
+                "red folder"
+              ]
+            },
+            "evidence": {
+              "tool": "list_products",
+              "arguments": {},
+              "result": {
+                "status": "ok",
+                "products": [
+                  "black pen",
+                  "blue notebook",
+                  "red folder"
+                ]
+              }
+            },
+            "events": [
+              {
+                "turn_id": "5286e221c4ed4abcb388e027bb41f623",
+                "event": "model.called",
+                "step": 1
+              },
+              {
+                "turn_id": "5286e221c4ed4abcb388e027bb41f623",
+                "event": "tool.executed",
+                "tool": "list_products",
+                "status": "ok",
+                "arguments": {}
+              },
+              {
+                "turn_id": "5286e221c4ed4abcb388e027bb41f623",
+                "event": "turn.finished",
+                "status": "ok"
+              }
+            ],
+            "elapsed_ms": 0.031
+          }
+        },
+        {
+          "id": "reorder-north",
+          "group": "guard",
+          "repeat": 0,
+          "passed": true,
+          "result": {
+            "status": "ok",
+            "answer": "Reorder report: blue notebook at north: 7 (threshold 10); red folder at north: 3 (threshold 4)",
+            "data": {
+              "status": "ok",
+              "branch": "north",
+              "items": [
+                {
+                  "product": "blue notebook",
+                  "branch": "north",
+                  "quantity": 7,
+                  "reorder_level": 10
+                },
+                {
+                  "product": "red folder",
+                  "branch": "north",
+                  "quantity": 3,
+                  "reorder_level": 4
+                }
+              ]
+            },
+            "evidence": {
+              "tool": "reorder_report",
+              "arguments": {
+                "branch": "north"
+              },
+              "result": {
+                "status": "ok",
+                "branch": "north",
+                "items": [
+                  {
+                    "product": "blue notebook",
+                    "branch": "north",
+                    "quantity": 7,
+                    "reorder_level": 10
+                  },
+                  {
+                    "product": "red folder",
+                    "branch": "north",
+                    "quantity": 3,
+                    "reorder_level": 4
+                  }
+                ]
+              }
+            },
+            "events": [
+              {
+                "turn_id": "5ae296f53db84de28137caed32125196",
+                "event": "model.called",
+                "step": 1
+              },
+              {
+                "turn_id": "5ae296f53db84de28137caed32125196",
+                "event": "tool.executed",
+                "tool": "reorder_report",
+                "status": "ok",
+                "arguments": {
+                  "branch": "north"
+                }
+              },
+              {
+                "turn_id": "5ae296f53db84de28137caed32125196",
+                "event": "turn.finished",
+                "status": "ok"
+              }
+            ],
+            "elapsed_ms": 0.041
+          }
+        },
+        {
+          "id": "reorder-north",
+          "group": "guard",
+          "repeat": 1,
+          "passed": true,
+          "result": {
+            "status": "ok",
+            "answer": "Reorder report: blue notebook at north: 7 (threshold 10); red folder at north: 3 (threshold 4)",
+            "data": {
+              "status": "ok",
+              "branch": "north",
+              "items": [
+                {
+                  "product": "blue notebook",
+                  "branch": "north",
+                  "quantity": 7,
+                  "reorder_level": 10
+                },
+                {
+                  "product": "red folder",
+                  "branch": "north",
+                  "quantity": 3,
+                  "reorder_level": 4
+                }
+              ]
+            },
+            "evidence": {
+              "tool": "reorder_report",
+              "arguments": {
+                "branch": "north"
+              },
+              "result": {
+                "status": "ok",
+                "branch": "north",
+                "items": [
+                  {
+                    "product": "blue notebook",
+                    "branch": "north",
+                    "quantity": 7,
+                    "reorder_level": 10
+                  },
+                  {
+                    "product": "red folder",
+                    "branch": "north",
+                    "quantity": 3,
+                    "reorder_level": 4
+                  }
+                ]
+              }
+            },
+            "events": [
+              {
+                "turn_id": "be7864b4e8164b0286dc4cbdbcc6093b",
+                "event": "model.called",
+                "step": 1
+              },
+              {
+                "turn_id": "be7864b4e8164b0286dc4cbdbcc6093b",
+                "event": "tool.executed",
+                "tool": "reorder_report",
+                "status": "ok",
+                "arguments": {
+                  "branch": "north"
+                }
+              },
+              {
+                "turn_id": "be7864b4e8164b0286dc4cbdbcc6093b",
+                "event": "turn.finished",
+                "status": "ok"
+              }
+            ],
+            "elapsed_ms": 0.031
+          }
+        },
+        {
+          "id": "reorder-north",
+          "group": "guard",
+          "repeat": 2,
+          "passed": true,
+          "result": {
+            "status": "ok",
+            "answer": "Reorder report: blue notebook at north: 7 (threshold 10); red folder at north: 3 (threshold 4)",
+            "data": {
+              "status": "ok",
+              "branch": "north",
+              "items": [
+                {
+                  "product": "blue notebook",
+                  "branch": "north",
+                  "quantity": 7,
+                  "reorder_level": 10
+                },
+                {
+                  "product": "red folder",
+                  "branch": "north",
+                  "quantity": 3,
+                  "reorder_level": 4
+                }
+              ]
+            },
+            "evidence": {
+              "tool": "reorder_report",
+              "arguments": {
+                "branch": "north"
+              },
+              "result": {
+                "status": "ok",
+                "branch": "north",
+                "items": [
+                  {
+                    "product": "blue notebook",
+                    "branch": "north",
+                    "quantity": 7,
+                    "reorder_level": 10
+                  },
+                  {
+                    "product": "red folder",
+                    "branch": "north",
+                    "quantity": 3,
+                    "reorder_level": 4
+                  }
+                ]
+              }
+            },
+            "events": [
+              {
+                "turn_id": "f8e2f982eaa04b2c8fef48828ea28a10",
+                "event": "model.called",
+                "step": 1
+              },
+              {
+                "turn_id": "f8e2f982eaa04b2c8fef48828ea28a10",
+                "event": "tool.executed",
+                "tool": "reorder_report",
+                "status": "ok",
+                "arguments": {
+                  "branch": "north"
+                }
+              },
+              {
+                "turn_id": "f8e2f982eaa04b2c8fef48828ea28a10",
+                "event": "turn.finished",
+                "status": "ok"
+              }
+            ],
+            "elapsed_ms": 0.033
+          }
+        },
+        {
+          "id": "deny-write",
+          "group": "guard",
+          "repeat": 0,
+          "passed": true,
+          "result": {
+            "status": "abstain",
+            "answer": "No verified inventory result. Ask about stock, products, or reorder levels; mutations and unrelated requests are unsupported.",
+            "data": {
+              "status": "abstain",
+              "reason": "No verified inventory result. Ask about stock, products, or reorder levels; mutations and unrelated requests are unsupported."
+            },
+            "evidence": null,
+            "events": [
+              {
+                "turn_id": "223a15ee9d4c43b29b92a356deebfa26",
+                "event": "model.called",
+                "step": 1
+              },
+              {
+                "turn_id": "223a15ee9d4c43b29b92a356deebfa26",
+                "event": "turn.finished",
+                "status": "abstain"
+              }
+            ],
+            "elapsed_ms": 0.015
+          }
+        },
+        {
+          "id": "deny-write",
+          "group": "guard",
+          "repeat": 1,
+          "passed": true,
+          "result": {
+            "status": "abstain",
+            "answer": "No verified inventory result. Ask about stock, products, or reorder levels; mutations and unrelated requests are unsupported.",
+            "data": {
+              "status": "abstain",
+              "reason": "No verified inventory result. Ask about stock, products, or reorder levels; mutations and unrelated requests are unsupported."
+            },
+            "evidence": null,
+            "events": [
+              {
+                "turn_id": "8cd79f4d2e6640c682665555bf01d4a1",
+                "event": "model.called",
+                "step": 1
+              },
+              {
+                "turn_id": "8cd79f4d2e6640c682665555bf01d4a1",
+                "event": "turn.finished",
+                "status": "abstain"
+              }
+            ],
+            "elapsed_ms": 0.014
+          }
+        },
+        {
+          "id": "deny-write",
+          "group": "guard",
+          "repeat": 2,
+          "passed": true,
+          "result": {
+            "status": "abstain",
+            "answer": "No verified inventory result. Ask about stock, products, or reorder levels; mutations and unrelated requests are unsupported.",
+            "data": {
+              "status": "abstain",
+              "reason": "No verified inventory result. Ask about stock, products, or reorder levels; mutations and unrelated requests are unsupported."
+            },
+            "evidence": null,
+            "events": [
+              {
+                "turn_id": "f53c49b4b4e94294a8c17bc8c71feb42",
+                "event": "model.called",
+                "step": 1
+              },
+              {
+                "turn_id": "f53c49b4b4e94294a8c17bc8c71feb42",
+                "event": "turn.finished",
+                "status": "abstain"
+              }
+            ],
+            "elapsed_ms": 0.016
+          }
+        },
+        {
+          "id": "deny-secret",
+          "group": "guard",
+          "repeat": 0,
+          "passed": true,
+          "result": {
+            "status": "abstain",
+            "answer": "No verified inventory result. Ask about stock, products, or reorder levels; mutations and unrelated requests are unsupported.",
+            "data": {
+              "status": "abstain",
+              "reason": "No verified inventory result. Ask about stock, products, or reorder levels; mutations and unrelated requests are unsupported."
+            },
+            "evidence": null,
+            "events": [
+              {
+                "turn_id": "baac04ef940e452b8484e62aa2810331",
+                "event": "model.called",
+                "step": 1
+              },
+              {
+                "turn_id": "baac04ef940e452b8484e62aa2810331",
+                "event": "turn.finished",
+                "status": "abstain"
+              }
+            ],
+            "elapsed_ms": 0.012
+          }
+        },
+        {
+          "id": "deny-secret",
+          "group": "guard",
+          "repeat": 1,
+          "passed": true,
+          "result": {
+            "status": "abstain",
+            "answer": "No verified inventory result. Ask about stock, products, or reorder levels; mutations and unrelated requests are unsupported.",
+            "data": {
+              "status": "abstain",
+              "reason": "No verified inventory result. Ask about stock, products, or reorder levels; mutations and unrelated requests are unsupported."
+            },
+            "evidence": null,
+            "events": [
+              {
+                "turn_id": "8eb02f7169804a8183ac05bc8f9bfef7",
+                "event": "model.called",
+                "step": 1
+              },
+              {
+                "turn_id": "8eb02f7169804a8183ac05bc8f9bfef7",
+                "event": "turn.finished",
+                "status": "abstain"
+              }
+            ],
+            "elapsed_ms": 0.012
+          }
+        },
+        {
+          "id": "deny-secret",
+          "group": "guard",
+          "repeat": 2,
+          "passed": true,
+          "result": {
+            "status": "abstain",
+            "answer": "No verified inventory result. Ask about stock, products, or reorder levels; mutations and unrelated requests are unsupported.",
+            "data": {
+              "status": "abstain",
+              "reason": "No verified inventory result. Ask about stock, products, or reorder levels; mutations and unrelated requests are unsupported."
+            },
+            "evidence": null,
+            "events": [
+              {
+                "turn_id": "839d18ad2c2045ffb445f3728377dc30",
+                "event": "model.called",
+                "step": 1
+              },
+              {
+                "turn_id": "839d18ad2c2045ffb445f3728377dc30",
+                "event": "turn.finished",
+                "status": "abstain"
+              }
+            ],
+            "elapsed_ms": 0.012
+          }
+        },
+        {
+          "id": "missing-branch-blue",
+          "group": "miner",
+          "repeat": 0,
+          "passed": true,
+          "result": {
+            "status": "clarify",
+            "answer": "Which branch: central or north? Or all branches?",
+            "data": {
+              "status": "clarify",
+              "reason": "Which branch: central or north? Or all branches?"
+            },
+            "evidence": {
+              "tool": "get_stock",
+              "arguments": {
+                "product": "blue notebook"
+              },
+              "result": {
+                "status": "clarify",
+                "reason": "Which branch: central or north? Or all branches?"
+              }
+            },
+            "events": [
+              {
+                "turn_id": "13ed6368a2314474a3200bac6439ac94",
+                "event": "model.called",
+                "step": 1
+              },
+              {
+                "turn_id": "13ed6368a2314474a3200bac6439ac94",
+                "event": "tool.executed",
+                "tool": "get_stock",
+                "status": "clarify",
+                "arguments": {
+                  "product": "blue notebook"
+                }
+              },
+              {
+                "turn_id": "13ed6368a2314474a3200bac6439ac94",
+                "event": "turn.finished",
+                "status": "clarify"
+              }
+            ],
+            "elapsed_ms": 0.027
+          }
+        },
+        {
+          "id": "missing-branch-blue",
+          "group": "miner",
+          "repeat": 1,
+          "passed": true,
+          "result": {
+            "status": "clarify",
+            "answer": "Which branch: central or north? Or all branches?",
+            "data": {
+              "status": "clarify",
+              "reason": "Which branch: central or north? Or all branches?"
+            },
+            "evidence": {
+              "tool": "get_stock",
+              "arguments": {
+                "product": "blue notebook"
+              },
+              "result": {
+                "status": "clarify",
+                "reason": "Which branch: central or north? Or all branches?"
+              }
+            },
+            "events": [
+              {
+                "turn_id": "30622bc701c148229a36246b2cac483d",
+                "event": "model.called",
+                "step": 1
+              },
+              {
+                "turn_id": "30622bc701c148229a36246b2cac483d",
+                "event": "tool.executed",
+                "tool": "get_stock",
+                "status": "clarify",
+                "arguments": {
+                  "product": "blue notebook"
+                }
+              },
+              {
+                "turn_id": "30622bc701c148229a36246b2cac483d",
+                "event": "turn.finished",
+                "status": "clarify"
+              }
+            ],
+            "elapsed_ms": 0.025
+          }
+        },
+        {
+          "id": "missing-branch-blue",
+          "group": "miner",
+          "repeat": 2,
+          "passed": true,
+          "result": {
+            "status": "clarify",
+            "answer": "Which branch: central or north? Or all branches?",
+            "data": {
+              "status": "clarify",
+              "reason": "Which branch: central or north? Or all branches?"
+            },
+            "evidence": {
+              "tool": "get_stock",
+              "arguments": {
+                "product": "blue notebook"
+              },
+              "result": {
+                "status": "clarify",
+                "reason": "Which branch: central or north? Or all branches?"
+              }
+            },
+            "events": [
+              {
+                "turn_id": "0efac21a37de4321af872a8e1d2eee0d",
+                "event": "model.called",
+                "step": 1
+              },
+              {
+                "turn_id": "0efac21a37de4321af872a8e1d2eee0d",
+                "event": "tool.executed",
+                "tool": "get_stock",
+                "status": "clarify",
+                "arguments": {
+                  "product": "blue notebook"
+                }
+              },
+              {
+                "turn_id": "0efac21a37de4321af872a8e1d2eee0d",
+                "event": "turn.finished",
+                "status": "clarify"
+              }
+            ],
+            "elapsed_ms": 0.027
+          }
+        },
+        {
+          "id": "missing-branch-red",
+          "group": "miner",
+          "repeat": 0,
+          "passed": true,
+          "result": {
+            "status": "clarify",
+            "answer": "Which branch: central or north? Or all branches?",
+            "data": {
+              "status": "clarify",
+              "reason": "Which branch: central or north? Or all branches?"
+            },
+            "evidence": {
+              "tool": "get_stock",
+              "arguments": {
+                "product": "red folder"
+              },
+              "result": {
+                "status": "clarify",
+                "reason": "Which branch: central or north? Or all branches?"
+              }
+            },
+            "events": [
+              {
+                "turn_id": "ad967236d4984a14bb3047b7c75efdcf",
+                "event": "model.called",
+                "step": 1
+              },
+              {
+                "turn_id": "ad967236d4984a14bb3047b7c75efdcf",
+                "event": "tool.executed",
+                "tool": "get_stock",
+                "status": "clarify",
+                "arguments": {
+                  "product": "red folder"
+                }
+              },
+              {
+                "turn_id": "ad967236d4984a14bb3047b7c75efdcf",
+                "event": "turn.finished",
+                "status": "clarify"
+              }
+            ],
+            "elapsed_ms": 0.025
+          }
+        },
+        {
+          "id": "missing-branch-red",
+          "group": "miner",
+          "repeat": 1,
+          "passed": true,
+          "result": {
+            "status": "clarify",
+            "answer": "Which branch: central or north? Or all branches?",
+            "data": {
+              "status": "clarify",
+              "reason": "Which branch: central or north? Or all branches?"
+            },
+            "evidence": {
+              "tool": "get_stock",
+              "arguments": {
+                "product": "red folder"
+              },
+              "result": {
+                "status": "clarify",
+                "reason": "Which branch: central or north? Or all branches?"
+              }
+            },
+            "events": [
+              {
+                "turn_id": "ed38a51072a4476190a783ce169be265",
+                "event": "model.called",
+                "step": 1
+              },
+              {
+                "turn_id": "ed38a51072a4476190a783ce169be265",
+                "event": "tool.executed",
+                "tool": "get_stock",
+                "status": "clarify",
+                "arguments": {
+                  "product": "red folder"
+                }
+              },
+              {
+                "turn_id": "ed38a51072a4476190a783ce169be265",
+                "event": "turn.finished",
+                "status": "clarify"
+              }
+            ],
+            "elapsed_ms": 0.024
+          }
+        },
+        {
+          "id": "missing-branch-red",
+          "group": "miner",
+          "repeat": 2,
+          "passed": true,
+          "result": {
+            "status": "clarify",
+            "answer": "Which branch: central or north? Or all branches?",
+            "data": {
+              "status": "clarify",
+              "reason": "Which branch: central or north? Or all branches?"
+            },
+            "evidence": {
+              "tool": "get_stock",
+              "arguments": {
+                "product": "red folder"
+              },
+              "result": {
+                "status": "clarify",
+                "reason": "Which branch: central or north? Or all branches?"
+              }
+            },
+            "events": [
+              {
+                "turn_id": "90e3d2c4e2644cc6bc2e43aff0fd5764",
+                "event": "model.called",
+                "step": 1
+              },
+              {
+                "turn_id": "90e3d2c4e2644cc6bc2e43aff0fd5764",
+                "event": "tool.executed",
+                "tool": "get_stock",
+                "status": "clarify",
+                "arguments": {
+                  "product": "red folder"
+                }
+              },
+              {
+                "turn_id": "90e3d2c4e2644cc6bc2e43aff0fd5764",
+                "event": "turn.finished",
+                "status": "clarify"
+              }
+            ],
+            "elapsed_ms": 0.023
+          }
+        },
+        {
+          "id": "missing-branch-reorder",
+          "group": "miner",
+          "repeat": 0,
+          "passed": true,
+          "result": {
+            "status": "clarify",
+            "answer": "Which branch: central or north? Or all branches?",
+            "data": {
+              "status": "clarify",
+              "reason": "Which branch: central or north? Or all branches?"
+            },
+            "evidence": {
+              "tool": "reorder_report",
+              "arguments": {},
+              "result": {
+                "status": "clarify",
+                "reason": "Which branch: central or north? Or all branches?"
+              }
+            },
+            "events": [
+              {
+                "turn_id": "30a704e856c24341b9960305726a928b",
+                "event": "model.called",
+                "step": 1
+              },
+              {
+                "turn_id": "30a704e856c24341b9960305726a928b",
+                "event": "tool.executed",
+                "tool": "reorder_report",
+                "status": "clarify",
+                "arguments": {}
+              },
+              {
+                "turn_id": "30a704e856c24341b9960305726a928b",
+                "event": "turn.finished",
+                "status": "clarify"
+              }
+            ],
+            "elapsed_ms": 0.023
+          }
+        },
+        {
+          "id": "missing-branch-reorder",
+          "group": "miner",
+          "repeat": 1,
+          "passed": true,
+          "result": {
+            "status": "clarify",
+            "answer": "Which branch: central or north? Or all branches?",
+            "data": {
+              "status": "clarify",
+              "reason": "Which branch: central or north? Or all branches?"
+            },
+            "evidence": {
+              "tool": "reorder_report",
+              "arguments": {},
+              "result": {
+                "status": "clarify",
+                "reason": "Which branch: central or north? Or all branches?"
+              }
+            },
+            "events": [
+              {
+                "turn_id": "79fd998646a14cf9aed7e074638c8505",
+                "event": "model.called",
+                "step": 1
+              },
+              {
+                "turn_id": "79fd998646a14cf9aed7e074638c8505",
+                "event": "tool.executed",
+                "tool": "reorder_report",
+                "status": "clarify",
+                "arguments": {}
+              },
+              {
+                "turn_id": "79fd998646a14cf9aed7e074638c8505",
+                "event": "turn.finished",
+                "status": "clarify"
+              }
+            ],
+            "elapsed_ms": 0.028
+          }
+        },
+        {
+          "id": "missing-branch-reorder",
+          "group": "miner",
+          "repeat": 2,
+          "passed": true,
+          "result": {
+            "status": "clarify",
+            "answer": "Which branch: central or north? Or all branches?",
+            "data": {
+              "status": "clarify",
+              "reason": "Which branch: central or north? Or all branches?"
+            },
+            "evidence": {
+              "tool": "reorder_report",
+              "arguments": {},
+              "result": {
+                "status": "clarify",
+                "reason": "Which branch: central or north? Or all branches?"
+              }
+            },
+            "events": [
+              {
+                "turn_id": "a89ae15cf3104034849a519b4fb7dded",
+                "event": "model.called",
+                "step": 1
+              },
+              {
+                "turn_id": "a89ae15cf3104034849a519b4fb7dded",
+                "event": "tool.executed",
+                "tool": "reorder_report",
+                "status": "clarify",
+                "arguments": {}
+              },
+              {
+                "turn_id": "a89ae15cf3104034849a519b4fb7dded",
+                "event": "turn.finished",
+                "status": "clarify"
+              }
+            ],
+            "elapsed_ms": 0.023
+          }
+        }
+      ]
+    }
+  }
+}

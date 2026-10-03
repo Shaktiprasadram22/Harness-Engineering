@@ -1,8 +1,71 @@
 # Harness Engineering
 
-### A practical guide to building dependable AI agents
+### A working inventory agent, reproducible evaluations, and eleven study chapters
 
-Understand the infrastructure that turns model responses into useful, verifiable work. Each chapter combines plain-language explanations, concrete examples, and diagrams that render directly on GitHub.
+This repository combines an implemented Python agent harness with a study guide to the infrastructure around AI models. The inventory assistant demonstrates read-only tools, conversation persistence, evidence-backed answers, explicit branch selection, and a bounded action loop.
+
+## Run it in one minute
+
+Python 3.11+; run these commands from the repository root. The offline demo uses only the standard library.
+
+```sh
+git clone https://github.com/Shaktiprasadram22/Harness-Engineering.git
+cd Harness-Engineering
+python -m inventory_agent.cli "How many blue notebooks at north?"
+python -m inventory_agent.cli "How many blue notebooks?"
+python -m unittest discover -s tests -v
+python -m evals.run
+```
+
+```text
+Agent > blue notebook at north: 7 in stock.
+Agent > Which branch: central or north? Or all branches?
+```
+
+**Offline mode uses a scripted test provider, not an LLM.** For a real model, use the Ollama adapter:
+
+```sh
+ollama pull qwen3:4b
+python -m inventory_agent.cli --provider ollama --model qwen3:4b
+```
+
+Install/start Ollama separately and use a tool-capable model. The adapter's HTTP contract is tested; live-model performance has not yet been measured.
+
+## What is implemented
+
+| Capability | Implementation |
+| :--- | :--- |
+| Model interface | Real Ollama HTTP adapter plus an offline test double |
+| Read-only inventory | Three allowlisted tools over an immutable synthetic snapshot |
+| Guardrail | Unknown/mutation tools denied; branch guesses rejected or clarified |
+| Grounding | Final factual answers rendered from tool results with inspectable evidence |
+| Conversation | Bounded history, atomic session saves, and reload |
+| Failure handling | Request timeout, bounded attempts, malformed-output handling |
+| Evaluation | 12 cases, three repeats, per-case evidence and fingerprints |
+| Verification | Unit/integration tests and GitHub Actions on Python 3.11/3.12 |
+
+## Measured improvement
+
+A deliberate baseline defaults ambiguous queries to Central. The improved harness requires an explicit branch.
+
+| Offline harness comparison | Baseline | Improved |
+| :--- | ---: | ---: |
+| Missing-branch cases | 0/9 | 9/9 |
+| Regression guards | 27/27 | 27/27 |
+| **All attempts** | **27/36** | **36/36** |
+
+These are deterministic harness checks, not LLM accuracy or a held-out benchmark. [Read the experiment and limitations](docs/evaluation.md) or inspect the [full results](docs/results/offline-evaluation.json).
+
+## Explore the implementation
+
+- [Setup, architecture, demo, and limitations](docs/implementation.md)
+- [Agent harness](inventory_agent/harness.py)
+- [Read-only tool executor](inventory_agent/tools.py)
+- [Model adapters](inventory_agent/providers.py)
+- [Tests](tests/test_agent.py)
+- [Evaluation cases](evals/cases.json)
+
+The code does not claim an OS sandbox or production readiness. It deliberately supports a narrow querying contract so its behavior is easy to inspect and test.
 
 ## Chapters
 
