@@ -41,4 +41,6 @@ The tests also check unknown tool denial, argument validation, unsupported model
 
 ## What remains unverified
 
-No live-model benchmark has been run. There is no hidden transfer set, concurrency/load evaluation, arbitrary-language support, or OS sandbox. The suite is intentionally small and does not establish comprehensive security. Model latency/token cost is not reported as measured data; offline timings are Python harness timings only.
+This offline experiment does not measure a live model or transfer behavior. A separate [live local-model experiment](live-evaluation.md) now records model calls, tokens, latency, conversation cases, and reserved transfer checks. There is still no concurrency/load evaluation, arbitrary-language support, or OS sandbox. Both suites are small and do not establish comprehensive security. Offline timings below remain Python harness timings, not model inference timings.
+
+The [current offline rerun](results/offline-evaluation-current.json) preserves the same 27/36 baseline and 36/36 improved result after the live-development harness changes. The original report is retained with its original source fingerprints.

@@ -29,7 +29,7 @@ ollama pull qwen3:4b
 python -m inventory_agent.cli --provider ollama --model qwen3:4b
 ```
 
-Install/start Ollama separately and use a tool-capable model. The adapter's HTTP contract is tested; live-model performance has not yet been measured.
+Install/start Ollama separately and use a tool-capable model. The adapter was exercised against a real local Qwen3 0.6B Q8_0 model. [Live evaluation and reproducibility](docs/live-evaluation.md) cover the measured results and limitations.
 
 ## What is implemented
 
@@ -41,7 +41,7 @@ Install/start Ollama separately and use a tool-capable model. The adapter's HTTP
 | Grounding | Final factual answers rendered from tool results with inspectable evidence |
 | Conversation | Bounded history, atomic session saves, and reload |
 | Failure handling | Request timeout, bounded attempts, malformed-output handling |
-| Evaluation | 12 cases, three repeats, per-case evidence and fingerprints |
+| Evaluation | Offline checks plus 16 live development and six reserved transfer scenarios, three repeats, per-case evidence and fingerprints |
 | Verification | Unit/integration tests and GitHub Actions on Python 3.11/3.12 |
 
 ## Measured improvement
@@ -55,6 +55,8 @@ A deliberate baseline defaults ambiguous queries to Central. The improved harnes
 | **All attempts** | **27/36** | **36/36** |
 
 These are deterministic harness checks, not LLM accuracy or a held-out benchmark. [Read the experiment and limitations](docs/evaluation.md) or inspect the [full results](docs/results/offline-evaluation.json).
+
+The real Qwen3 0.6B development comparison improved whole-scenario passes from **18/48 to 30/48** and individual turns from **21/60 to 42/60**. Reserved transfer passes improved from **3/18 to 9/18**. Live multi-turn development scenarios still failed **0/12** before and after. [See full live results and limitations](docs/live-evaluation.md); these are separate from the deterministic scores above.
 
 ## Explore the implementation
 

@@ -64,7 +64,7 @@ Agent > blue notebook at north: 7 in stock.
 You > quit
 ```
 
-Restart with the same session path to load saved messages. Only user and assistant messages are accepted from session files; system and tool roles are rejected. Sessions are written by atomic file replacement and retain a bounded recent history. This is persistence, not long-term semantic retrieval or crash-resumable tool execution.
+Restart with the same session path to load saved messages. Only user and assistant messages are accepted from session files; system and tool roles are rejected. Sessions are written by atomic file replacement and retain a bounded recent history. Version 2 also preserves the last tool-verified single branch; version 1 sessions remain readable with no verified branch anchor. Session files are trusted local application state, not authenticated authorization records. This is persistence, not long-term semantic retrieval or crash-resumable tool execution.
 
 ## Real local model
 
@@ -78,7 +78,7 @@ python -m inventory_agent.cli --provider ollama --model qwen3:4b \
 
 The model download, hardware requirements, and runtime are external to this repository. The adapter uses Ollama's [chat endpoint](https://docs.ollama.com/api/chat) and [tool-call format](https://docs.ollama.com/capabilities/tool-calling), with non-streamed responses and a request timeout. Use `--endpoint` to change the server address.
 
-**Validation status:** the adapter has a real HTTP integration test against a local mock server. No live model was available in the development environment; no live-model accuracy or latency is claimed. To measure it yourself:
+**Validation status:** the adapter has an HTTP integration test and was also exercised against a real local Qwen3 0.6B Q8_0 model. See the [live evaluation](live-evaluation.md) for before/after results, multi-turn cases, reserved transfer checks, and limitations. The following command runs the earlier 12-case suite against your model:
 
 ```sh
 python -m evals.run --provider ollama --model qwen3:4b --repeats 3 \
@@ -95,7 +95,7 @@ Stock records are loaded read-only from a CSV into frozen records. The CLI does 
 
 This is **not an OS sandbox**. The tool boundary does not defend against compromised application code or a hostile model server. A production service would additionally need authentication, scoped storage, endpoint policy, concurrency controls, and enforced environment isolation.
 
-The improved policy checks branch selection outside the model. If the current request omits a recognized branch, the executor asks for clarification even when a model guessed one. Recognized explicit branches are `central`, `north`, and the phrase `all branches`. Product matching in real-model mode depends on model-selected exact product names; abbreviations and unrestricted conversation references are outside the current contract.
+The improved policy checks branch selection outside the model. If the current request omits a recognized branch and a supported contextual reference, the executor asks for clarification even when a model guessed one. Recognized explicit branches are `central`, `north`, and the phrase `all branches`. The harness accepts exact catalog names and their simple trailing-s plurals. It resolves “same branch” and “other branch” only from a previous tool-verified single branch. An all-branches result clears that anchor. Other-branch resolution requires exactly one alternative in the loaded inventory. Abbreviations and unrestricted references remain outside the contract. Explicit branch mismatches are still denied.
 
 ## Budgets and failure handling
 

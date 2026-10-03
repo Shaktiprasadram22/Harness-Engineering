@@ -1,0 +1,14 @@
+{
+  "frozen_at": "2026-10-03T19:41:51.900839+00:00",
+  "source_sha256": {
+    "evals/baselines/harness_v1.py": "5254329fcd93cf20da462e736e6fc0b5f6887b0009f803715653f91551a268ce",
+    "evals/live.py": "02e942b508e9688fbd6f299d93767af9a170ef61005c1910ee381e13f4f9cb39",
+    "inventory_agent/__init__.py": "439cd50704c84eece015456e3d16c55be8c46b8e622bc7056ad41d4038cc4208",
+    "inventory_agent/cli.py": "40a984ef7ae555bc5ce9bda3a81e9557030997586d3bc809e16bac0d904239f1",
+    "inventory_agent/harness.py": "65d874bc92c2adf0ecbca6e1b3709d787d7a9dc25cb02f4b0fb29e791fbc1c31",
+    "inventory_agent/providers.py": "755c60821f68ca1e9a8ead5265fddcc7d518ff74b108fb3ea77c0526ce911771",
+    "inventory_agent/tools.py": "756509a429a2b3e55bdff6bb2f04acff7972665fbcc896bb45085d9c9b960d74"
+  },
+  "transfer_sha256": "88c133f6583648b699e51d892fc5947b0a575d83cfc9047da7514940fbc4edb9",
+  "note": "Frozen before running any transfer evaluation; no transfer-driven tuning."
+}
