@@ -16,6 +16,7 @@
 - [Understand the mechanism](#understand-the-mechanism)
 - [Workshop: improve a log-analysis agent](#workshop-improve-a-log-analysis-agent)
 - [Held-in, held-out, and the fixer](#held-in-held-out-and-the-fixer)
+- [Boundaries: prevent question leaks and changes to the answer key](#boundaries-prevent-question-leaks-and-changes-to-the-answer-key)
 - [Miners and regression guards](#miners-and-regression-guards)
 - [Measure improvements carefully](#measure-improvements-carefully)
 - [Design a reviewable change](#design-a-reviewable-change)
@@ -272,6 +273,45 @@ Imagine an expert writes a complex checklist for a beginner who reliably follows
 Keep graders and reference data outside the candidate’s authority. Record the candidate diff, run the checks, and restore the baseline after rejection. If you repair the grader, remeasure the baseline too. Inspect individual guard failures before accepting a better average.
 
 **Connection to Chapter 11:** a candidate that passes this stage can still be rejected during design review. Testing a proposal and adopting it are separate decisions.
+
+## Boundaries: prevent question leaks and changes to the answer key
+
+**Your understanding is correct:** we add boundaries around the improvement process so the fixer must improve the harness instead of manipulating the tests to obtain a better score.
+
+Imagine a teacher gives a student **five practice questions** and later an exam with **five new questions**. The student may improve their solving method, but cannot inspect the hidden exam beforehand or rewrite the teacher’s marking scheme.
+
+| Exam analogy | Boundary in the improvement process | Why it matters |
+| :--- | :--- | :--- |
+| Practice questions the student may study | Held-in examples the fixer can inspect | Help investigate failures and develop a fix |
+| Exam questions kept hidden during preparation | Held-out examples reserved for the evaluator | Check whether the fix works beyond the visible examples |
+| The student cannot rewrite the answer key | Graders and reference answers are protected from edits | Prevent a wrong result from being redefined as correct |
+| The student may improve only the permitted method or materials | An explicit editable surface limits the fixer’s changes | Keep the candidate within the authorized repair scope |
+
+### Two different protections
+
+**Prevent question leakage:** keep held-out questions, answers, and revealing traces out of the fixer’s development context. The evaluator still runs those tasks. Passing leaked exam questions would provide weaker evidence that the method generalizes.
+
+**Prevent grading manipulation:** deny the fixer write access to graders and protected reference data. Knowing a practice question is allowed; changing its expected answer to match a wrong result is not.
+
+```mermaid
+flowchart LR
+    P["Visible practice examples"] --> F["Fixer proposes a permitted harness change"]
+    F --> C["Candidate harness"]
+    C --> E["Independent evaluator"]
+    H["Held-out exam examples hidden from the fixer"] --> E
+    K["Protected graders and answer keys"] --> E
+    E --> R["Recorded results and regression checks"]
+```
+
+These boundaries must be enforced through access controls and candidate validation. Merely writing “do not cheat” in a prompt, or placing tests in another folder, does not establish the boundary. Fingerprints can additionally detect changes to protected test files when the stored fingerprints are themselves protected.
+
+“Cheating” does not require deliberate dishonesty. An AI seeking a higher score might discover that changing an expected answer is easier than fixing the underlying problem. The system must make that shortcut unavailable.
+
+**Definition for your notes:**
+
+> Evaluation boundaries keep hidden exam material out of development and prevent the fixer from altering the grading system, so improved scores must come from permitted changes to the harness.
+
+This supports trustworthy evaluation; it does not guarantee that every test is well designed or that repeated selection against the same hidden set cannot overfit to it.
 
 ## Practice and reflection
 
