@@ -16,6 +16,7 @@ Understand the infrastructure that turns model responses into useful, verifiable
 | **06** | [Context Management](chapters/06-context-management.md) | Select, compress, write, isolate, and inspect the model’s working context |
 | **07** | [Agent Skills](chapters/07-agent-skills.md) | Reusable procedures, selective loading, evidence, and practical evaluation |
 | **08** | [Evaluating AI Agents](chapters/08-evaluating-ai-agents.md) | Metrics, repeated trials, evidence, and measured improvements |
+| **09** | [Agent Sandboxing](chapters/09-agent-sandboxing.md) | Isolation layers, access boundaries, credentials, and blast radius |
 
 ## About these notes
 
@@ -45,3 +46,6 @@ These chapters are original educational explanations inspired by **The Carbon La
 
 - [Watch the Chapter 8 video](https://www.youtube.com/watch?v=B9NPE_CaK5Q)
 - [Read the Chapter 8 companion article](https://www.thecarbonlayer.com/agent-evaluation/)
+
+- [Watch the Chapter 9 video](https://www.youtube.com/watch?v=-01_NB4SbBY)
+- [Read the Chapter 9 companion article](https://www.thecarbonlayer.com/agent-sandboxing/)
