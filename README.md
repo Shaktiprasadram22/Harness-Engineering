@@ -18,6 +18,7 @@ Understand the infrastructure that turns model responses into useful, verifiable
 | **08** | [Evaluating AI Agents](chapters/08-evaluating-ai-agents.md) | Metrics, repeated trials, evidence, and measured improvements |
 | **09** | [Agent Sandboxing](chapters/09-agent-sandboxing.md) | Isolation layers, access boundaries, credentials, and blast radius |
 | **10** | [Testing Multi-Agent Systems](chapters/10-testing-multi-agent-systems.md) | Verified evidence, output contracts, recovery, and final-revision checks |
+| **11** | [Engineering a Self-Improving Agent](chapters/11-engineering-self-improvement.md) | Output strategies, temporary storage, reachability, and adoption |
 
 ## About these notes
 
@@ -53,3 +54,5 @@ These chapters are original educational explanations inspired by **The Carbon La
 
 - [Watch the Chapter 10 video](https://www.youtube.com/watch?v=RSOQ0lQ2-1M)
 - [Read the Chapter 10 companion article](https://www.thecarbonlayer.com/meta-harness-build/)
+
+- [Watch the Chapter 11 video](https://www.youtube.com/watch?v=qDJIEodb2tk)
