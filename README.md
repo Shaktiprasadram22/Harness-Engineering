@@ -17,6 +17,7 @@ Understand the infrastructure that turns model responses into useful, verifiable
 | **07** | [Agent Skills](chapters/07-agent-skills.md) | Reusable procedures, selective loading, evidence, and practical evaluation |
 | **08** | [Evaluating AI Agents](chapters/08-evaluating-ai-agents.md) | Metrics, repeated trials, evidence, and measured improvements |
 | **09** | [Agent Sandboxing](chapters/09-agent-sandboxing.md) | Isolation layers, access boundaries, credentials, and blast radius |
+| **10** | [Testing Multi-Agent Systems](chapters/10-testing-multi-agent-systems.md) | Verified evidence, output contracts, recovery, and final-revision checks |
 
 ## About these notes
 
@@ -49,3 +50,6 @@ These chapters are original educational explanations inspired by **The Carbon La
 
 - [Watch the Chapter 9 video](https://www.youtube.com/watch?v=-01_NB4SbBY)
 - [Read the Chapter 9 companion article](https://www.thecarbonlayer.com/agent-sandboxing/)
+
+- [Watch the Chapter 10 video](https://www.youtube.com/watch?v=RSOQ0lQ2-1M)
+- [Read the Chapter 10 companion article](https://www.thecarbonlayer.com/meta-harness-build/)
